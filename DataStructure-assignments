@@ -110,3 +110,141 @@ int main()
 	
 	free(p);
 }
+=====================================================================================================================================================================
+Q6
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 7
+
+
+typedef struct st
+{
+int top;
+char elements[SIZE];
+}stack;
+
+
+void initialize(stack *sp)
+{
+sp->top=-1;
+}
+
+
+void push(stack *sp,int item)
+{
+if(is_full(sp))
+printf("\nstack overflow");
+else
+sp->elements[++sp->top]=item;
+}
+
+
+int pop(stack *sp)
+{
+int x;
+if(is_empty(sp))
+printf("\nstack underflow");
+else
+x=sp->elements[sp->top--];
+return x;
+}
+
+
+int is_full(stack *sp)
+{
+if(sp->top==SIZE-1)
+return 1;
+else
+return 0;
+}
+
+
+int is_empty(stack *sp)
+{
+if(sp->top== -1)
+return 1;
+else
+return 0;
+}
+
+
+int main()
+{
+stack s1;
+push(&s1,'N');
+push(&s1,'I');
+push(&s1,'M');
+push(&s1,'E');
+push(&s1,'S');
+push(&s1,'H');
+int i;
+for(i=s1.top;i!=-1;--i)
+{
+printf("%c",s1.elements[i]);
+}
+
+}
+==============================================================================================================================================================
+Q7
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 5
+
+typedef struct queue
+
+{
+int front;
+int rear;
+double elements[SIZE];
+}queue;
+
+void initialize(queue *qp)
+{
+qp->front=-1;
+qp->rear=-1;
+}
+void add(queue *qp,double item)
+{
+if(qp->rear==SIZE-1)
+printf("\nqueue overflow");
+else
+{
+if(qp->front == -1)
+qp->front=0;
+qp->elements[++qp->rear]=item;
+}
+}
+int rem(queue *qp)
+{
+char x;
+if(qp->front==-1)
+printf("\nqueue underflow");
+else
+x=qp->elements[qp->front++];
+return x;
+}
+
+void display(queue *qp)
+{
+ int i;
+ for(i=qp->front;i<=qp->rear;i++)
+  {
+    printf("double values : %lf\n",qp->elements[i]);
+  }
+}
+
+int main()
+{
+queue *qp;
+qp=(queue*)malloc(sizeof(queue));
+
+initialize(qp);
+add(qp,1);
+add(qp,2);
+add(qp,3);
+add(qp,4);
+add(qp,5);
+display(qp);
+}
+==================================================================================================================================================
+Q8
