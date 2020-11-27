@@ -248,3 +248,604 @@ display(qp);
 }
 ==================================================================================================================================================
 Q8
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 3
+
+ 
+
+typedef struct a_st
+{
+    int Atop;
+    char Aelements[SIZE];
+}A;
+
+ 
+
+typedef struct b_st
+{
+    int Btop;
+    int Belements[SIZE];
+}B;
+
+ 
+
+void Ainitialize(A *sp)
+{
+    sp->Atop=-1;
+}
+
+ 
+
+void Binitialize(B *sp)
+{
+    sp->Btop=-1;
+}
+
+ 
+
+void Apush(A *sp,char item)
+{
+    if(A_is_full(sp))
+    printf("\nstack overflow\n");
+    
+    else
+    sp->Aelements[++sp->Atop]=item;
+}
+
+ 
+
+void Bpush(B *sp,int item)
+{
+    if(B_is_full(sp))
+    printf("\nstack overflow\n");
+    
+    else
+    sp->Belements[++sp->Btop]=item;
+}
+
+ 
+
+int Apop(A *sp)
+{
+    int x;
+    
+    if(A_is_empty(sp))
+    printf("\nstack underflow");
+    
+    else
+    x=sp->Aelements[sp->Atop--];
+    
+    return x;
+}
+
+ 
+
+int Bpop(B *sp)
+{
+    int x;
+    
+    if(B_is_empty(sp))
+    printf("\nstack underflow");
+    
+    else
+    x=sp->Belements[sp->Btop--];
+    
+    return x;
+}
+
+ 
+
+int A_is_full(A*sp)
+{
+    if(sp->Atop == SIZE-1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+ 
+
+int B_is_full(B *sp)
+{
+    if(sp->Btop == SIZE-1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+ 
+
+int A_is_empty(A *sp)
+{
+    if(sp->Atop == -1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+ 
+
+int B_is_empty(B *sp)
+{
+    if(sp->Btop == -1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+ 
+
+void A_display(A *sp)
+{
+    int i;
+    
+    for(i=sp->Atop;i!=-1;i--)
+    {
+        printf("%c",sp->Aelements[i]);
+    }
+    
+    printf("\n\n");
+}
+
+ 
+
+void B_display(B *sp)
+{
+    int i;
+    
+    for(i=sp->Btop;i!=-1;i--)
+    {
+        printf("%d",sp->Belements[i]);
+    }
+    
+    printf("\n\n");
+}
+
+ 
+
+int main()
+{
+     A a;
+    
+    Ainitialize(&a);
+    
+    Apush(&a,'a');
+    Apush(&a,'b');
+    Apush(&a,'c');
+    
+    A_display(&a);
+    
+    B b;
+    
+    Binitialize(&b);
+    
+    Bpush(&b,1);
+    Bpush(&b,2);
+    Bpush(&b,3);
+    
+    B_display(&b);
+    
+    
+}
+============================================================================================================================
+Q9
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 5
+
+typedef struct queue
+
+{
+int front;
+int rear;
+double elements[SIZE];
+}queue;
+
+void initialize(queue *qp)
+{
+qp->front=-1;
+qp->rear=-1;
+}
+void add(queue *qp,double item)
+{
+if(qp->rear==SIZE-1)
+printf("\nqueue overflow");
+else
+{
+if(qp->front == -1)
+qp->front=0;
+qp->elements[++qp->rear]=item;
+}
+}
+int rem(queue *qp)
+{
+char x;
+if(qp->front==-1)
+printf("\nqueue underflow");
+else
+x=qp->elements[qp->front++];
+return x;
+}
+
+void display(queue *qp)
+{
+ int i;
+ for(i=qp->front;i<=qp->rear;i++)
+  {
+    printf("double values : %lf\n",qp->elements[i]);
+  }
+}
+
+int main()
+{
+queue *qp;
+qp=(queue*)malloc(sizeof(queue));
+
+initialize(qp);
+add(qp,1);
+add(qp,2);
+add(qp,3);
+add(qp,4);
+add(qp,5);
+display(qp);
+}
+=================================================================================================================
+Q10
+#include<stdio.h>
+#define SIZE 5
+ 
+typedef struct queue
+ 
+{
+   int front;
+   int rear;
+   int elements[SIZE];
+ 
+}queue;
+ 
+void initialize(queue *qp)
+{
+    qp->front=-1;
+    qp->rear=-1;
+}
+ 
+void add(queue *qp,int item)
+{
+    if(qp->rear==SIZE-1)
+    printf("\nqueue OVERFLOW");
+    else
+   
+    qp->elements[++qp->rear]=item;
+}
+int rem(queue*qp)
+{
+	char x;
+	if(qp->front==-1)
+	printf("\nqueue underflow");
+	else
+	x=qp->elements[qp->front++];
+	return x;
+}
+
+void display(queue *qp)
+{
+	int i;
+	for(i=qp->front;i<=qp->rear;i++)
+	{
+		printf("square values are :%d\n",(qp->elements[i])*(qp->elements[i]));
+	}
+}
+int main()
+{
+	queue *qp;
+	qp=(queue*)malloc(sizeof(queue));
+	initialize(qp);
+	add(qp,2);
+	add(qp,4);
+	add(qp,8);
+	add(qp,10);
+	
+	display(qp);
+}
+===============================================================================================================================================================
+Q13
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define SIZE 5
+
+typedef struct a_st
+{
+	int Atop;
+	char Aelements[SIZE];	
+}A;
+typedef struct b_st
+{
+	int Btop;
+	char Belements[SIZE];	
+}B;
+
+
+void Ainitialize(A *sp)
+{
+	sp->Atop=-1;
+}
+void Binitialize(B *sp)
+{
+	sp->Btop=-1;
+}
+
+void Apush(A *sp,char item)
+{
+		if(A_is_full(sp))	
+			printf("\nStack overflow\n");
+		else
+			sp->Aelements[++sp->Atop]=item;
+}
+void Bpush(B *sp,char item)
+{
+		if(B_is_full(sp))	
+			printf("\nStack overflow\n");
+		else
+			sp->Belements[++sp->Btop]=item;
+}
+
+
+int Apop(A *sp)
+{
+	int x;
+	if(A_is_empty(sp))
+		printf("\nStack underflow");
+	else
+		x=sp->Aelements[sp->Atop--];
+	return x;	
+}
+
+int A_is_full(A*sp)   
+{
+	if(sp->Atop == SIZE-1)      
+		return 1;
+	else
+		return 0;
+}
+int B_is_full(B*sp)   
+{
+	if(sp->Btop == SIZE-1)      
+		return 1;
+	else
+		return 0;
+}
+
+
+int A_is_empty(A *sp)   
+{
+	if(sp->Atop == -1)          
+		return 1;
+	else
+		return 0;	
+}
+int B_is_empty(B*sp)   
+{
+	if(sp->Btop == -1)          
+		return 1;
+	else
+		return 0;	
+}
+void A_display(A *sp)
+{
+	int i;
+	
+	for(i=sp->Atop;i!=-1;i--)
+	{
+		printf("%d ",sp->Aelements[i]);	
+	}	
+	printf("\n\n");
+}
+
+void B_display(B *sp)
+{
+	int i;
+	
+	for(i=sp->Btop;i!=-1;i--)
+	{
+		printf("%d ",sp->Belements[i]);	
+	}	
+	printf("\n\n");
+}
+
+int main()
+{
+	A a;
+	Ainitialize(&a);
+	B b;
+	Binitialize(&b);
+	int *p1;
+	p1=&a;
+	int i,j;
+	for(i=0;i<SIZE;i++)
+	{
+		printf("Enter Number :");
+		scanf("%d",&j);
+		Apush(&a,j);
+		Bpush(&b,j);
+	}
+	A_display(&a);
+	printf("\n");
+	B_display(&b);	
+}
+=====================================================================================================================================================
+Q14
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 7
+
+
+typedef struct st
+{
+    int top;
+    int elements[SIZE];
+}stack;
+
+
+void initialize(stack *sp)
+{
+    sp->top=-1;
+}
+
+
+void push(stack *sp,int item)
+{
+    if(is_full(sp))
+    printf("\nstack overflow");
+    
+    else
+    sp->elements[++sp->top]=item;
+}
+
+
+int pop(stack *sp)
+{
+    int x;
+    
+    if(is_empty(sp))
+    printf("\nstack underflow");
+    
+    else
+    x=sp->elements[sp->top--];
+    
+    return x;
+}
+
+
+int is_full(stack *sp)
+{
+    if(sp->top==SIZE-1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+
+int is_empty(stack *sp)
+{
+    if(sp->top==-1)
+    return 1;
+    
+    else
+    return 0;
+}
+
+
+void display(stack *sp)
+{
+    int i;
+    
+    for(i=sp->top;i!=-1;i++)
+    {
+        printf("%d",sp->elements[i]);
+    }
+    
+    printf("\n");
+}
+
+
+int main()
+{
+    stack s1;
+    initialize(&s1);
+    
+    int i,j;
+    for(i=s1.top;i<4;i++)
+    {
+        printf("enter the number : ");
+        scanf("%d",&j);
+        push(&s1,j);
+    }
+    display(&s1);
+    
+}
+================================================================================================================================================
+Q15
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nd
+{
+   char data;
+   struct nd *next;
+}node;
+
+typedef struct ls
+{
+   node *head,*tail;
+}list;
+
+node* createNode(char no)
+{
+   node *np;
+   np=(node*)malloc(sizeof(node));
+   if(np == NULL)
+{
+   printf("Memory not available");
+   exit(0);
+}
+   np->data=no;
+   np->next=NULL;
+   
+   return np;
+}
+
+void initalize(list *p)
+{
+   p->head = NULL;
+   p->tail = NULL;
+}
+
+void insertAtail(list *p,char x)
+{
+    node *np;
+    np = createNode(x);
+    if(p->head==NULL)
+    p->head = np;
+    else
+    p->tail->next = np;
+    p->tail = np;
+}
+
+void traverse(list *p)
+{
+   node *sp;
+   sp = p->head;
+   while(sp!=NULL)
+  {
+     printf("%c\n",sp->data);
+     sp=sp->next;
+  }
+}
+int main()
+{
+   list *p;
+   p = (list*) malloc(sizeof(list));
+   if(p == NULL)
+  {
+    printf("MEMORY UNVAVAILABLE");
+    exit(0);
+  }
+  initalize(p);
+  insertAtail(p,'A');
+  insertAtail(p,'B');
+  insertAtail(p,'C');
+  insertAtail(p,'D');
+  insertAtail(p,'E');
+  traverse(p);
+  
+  free(p);
+	
+		
+}
