@@ -849,3 +849,271 @@ int main()
 	
 		
 }
+===================================================================================
+Q.16 
+#include<stdio.h> 
+#include<stdlib.h>
+
+//MULTIPLE NODES
+ 
+typedef struct st
+ 
+{
+
+ 
+int data;
+
+ 
+struct nd *next;
+
+ 
+}node;
+
+ 
+typedef struct ls
+
+ 
+{
+
+ 
+node *head,*tail;
+
+ 
+}list;
+
+ 
+void initialize(list *s)
+
+ 
+{
+
+ 
+s->head = NULL;
+
+ 
+s->tail = NULL;
+
+ 
+}
+
+ 
+node* createnode(int x)
+
+ 
+{
+
+ 
+node *sp;
+
+ 
+sp = (node*)malloc(sizeof(node));
+
+ 
+if(sp == NULL)
+
+ 
+{
+
+ 
+printf("Memoy not avaliable");
+
+ 
+exit(0);
+
+ 
+}
+ 
+sp->data = x;
+
+ 
+sp->next = NULL;
+
+ 
+return sp;
+
+ 
+}
+
+ 
+void insertAtail(list *s,int x)
+
+ 
+{
+
+ 
+node *sp;
+
+ 
+sp=createnode(x);
+
+ 
+if(s->head==NULL)
+
+ 
+s->head=sp;
+
+ 
+else
+
+ 
+s->tail->next=sp;
+
+ 
+s->tail=sp;
+
+ 
+}
+
+ 
+void traverse(list *s)
+
+ 
+{
+
+ 
+node *p;
+
+ 
+p=s->head;
+
+ 
+while(p!=0)
+
+ 
+{
+
+ 
+printf("%d\n",p->data);
+
+ 
+p=p->next;
+
+ 
+}
+
+ 
+}
+
+ 
+int getnodes(list *s)
+
+ 
+{
+
+ 
+node *p;
+
+ 
+int count=0;
+
+ 
+for(p=s->head;p!=NULL;p=p->next)
+
+ 
+{
+
+ 
+++count;
+
+ 
+}
+
+ 
+return count;
+
+ 
+}
+
+ 
+int main()
+
+ 
+{
+
+ 
+list *s;
+
+ 
+s=(list*)malloc(sizeof(list));
+
+ 
+if(s == NULL)
+
+ 
+{
+
+ 
+printf("Memory not available");
+
+ 
+exit(0);
+
+ 
+}
+
+ 
+initialize(s);
+
+ 
+insertAtail(s,100);
+
+ 
+insertAtail(s,200);
+
+ 
+insertAtail(s,300);
+
+ 
+traverse(s);
+
+ 
+int count = getnodes(s);
+ 
+printf("NO. OF NODES : %d",count);
+
+ 
+}
+
+
+==========================================================================================
+Q.17 
+#include<stdio.h>
+#include<conio.h>
+
+ void main()
+{
+    char str[10]={'J','o','s','e','p','h','i','n','e'};
+    
+    char ch,flag;
+    
+    printf("\nEnter character  which is to be searched : ");
+    scanf("%c",&ch);
+    
+    int i;
+    for(i=0;i<10;i++)
+    {
+        if(str[i] == ch)
+        {
+            flag = i+1;
+            break;
+        }
+        
+        else
+        flag = 0;
+    }
+    
+    if(flag !=0)
+    {
+        printf("\ncharacter found at location %d\n",flag,ch);
+        
+    }
+    
+    else
+    {
+        printf("\ncharacter not found \n");
+    }
+}
+
+
+
+================================================================================================================
