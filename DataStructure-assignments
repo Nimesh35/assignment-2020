@@ -1113,7 +1113,228 @@ Q.17
         printf("\ncharacter not found \n");
     }
 }
+==================================================================================================================================
+Q.18
+#include<stdio.h>
+#include<stdlib.h>
 
+typedef struct nd             
+{                           
+    char data;
+    struct nd *next;
+}node;
 
+typedef struct ls
+{
+	node *head,*tail;
+}list;
 
-================================================================================================================
+node* createNode(char no)
+{
+    node *np;
+    
+    np=(node*)malloc(sizeof(node));  
+    
+    if(np == NULL)
+    {
+        printf("Memory not available");
+        exit(0);    
+    }
+    
+    np->data=no;
+    np->next=NULL;
+    
+    return np;
+}
+
+void initalize(list *p)
+{
+	p->head = NULL;
+	p->tail = NULL;
+}
+void insertAtail(list *p,char x)
+{
+	node *np;
+	np = createNode(x);
+	if(p->head==NULL)
+	p->head = np;
+	else
+	p->tail->next = np;
+	p->tail = np;
+}
+
+void traverse(list *p)
+{
+    node *sp;
+    int c=0;
+    sp=p->head;
+    printf("LIST IS :");
+    while(sp!=NULL)
+    {
+    	printf("%d ",sp->data);
+    	sp=sp->next;
+    	c++;
+	}
+	
+	int arr[c];
+	sp=p->head;
+	int i=c-1;
+	while(sp!=NULL)
+	{
+		arr[i]=sp->data;
+		sp=sp->next;
+		i--;
+	}
+	
+	printf("\nLINKED LIST IN REVERSE ORDER : ");
+	for(i=0;i<c;i++)
+	{
+		printf("%d ",arr[i]);
+	}
+}
+int main()
+{    
+    list *p;
+    
+    p = (list*) malloc(sizeof(list));
+    
+    if(p == NULL)
+    {
+    	printf("MEMORY UNVAVAILABLE");
+    	exit(0);
+	}
+	
+	initalize(p);
+	insertAtail(p,'A');
+	insertAtail(p,'B');
+	insertAtail(p,'C');
+	insertAtail(p,'D');
+	insertAtail(p,'E');
+	
+	traverse(p);
+	
+	free(p);
+    
+}
+
+=================================================================================================================================
+Q.19 
+#include<stdio.h>
+#include<stdlib.h>
+//MULTIPLE NODES
+typedef struct st
+{
+	char data;
+	struct nd *next;
+}node;
+
+typedef struct ls
+{
+	node *head,*tail;
+}list;
+
+void initialize(list *s)
+{
+	s->head = NULL;
+	s->tail = NULL;
+}
+
+node* createnode(char* x)
+{
+	node *sp;
+	
+	sp = (node*)malloc(sizeof(node));
+	
+	if(sp == NULL)
+	{
+		printf("MEMORY UNAVAILABLE");
+		exit(0);
+	}
+	
+	sp->data = x;
+	sp->next = NULL;
+	
+	return sp;
+}
+
+void insertAtail(list *s,char *x)
+{
+	node *sp;
+	
+	sp=createnode(x);
+	if(s->head==NULL)
+	s->head=sp; 
+	else
+	s->tail->next=sp;
+	s->tail=sp;
+}
+
+void traverse(list *s)
+{
+	node *p;
+	
+	p=s->head->next;
+	
+	while(p!=0)
+	{
+		printf("%c\n",p->data);
+		p=p->next;
+	}
+}
+
+int main()
+{
+	list *s;
+	
+	s=(list*)malloc(sizeof(list));
+	
+	if(s == NULL)
+	{
+		printf("MEMORY UNAVAILABLE");
+		exit(0);
+	}
+	
+	initialize(s);
+	
+	insertAtail(s,'C');
+	insertAtail(s,'D');
+	insertAtail(s,'G');
+	
+	
+	traverse(s);
+}
+    
+=======================================================================================
+Q20
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char data[100][100],search[50];
+    int i,c=0;
+    for(i=0;i<3;i++)
+    {
+        printf("Enter City Name %d : = ",i+1);
+        scanf("%s",data[i]);
+    }
+    printf("\nCity Name are:\n");
+    for(i=0;i<3;i++)
+    {
+        printf("%s\t",data[i]);
+    }
+    printf("\n\nEnter Name to be Searched: ");
+    scanf("%s",search);
+    for(i=0;i<3;i++)
+    {
+        if(strcmp(data[i],search)==0)
+        {
+            c=1;
+            break;
+        }
+    }
+    if(c==1)
+        printf("\n%s Found at Position '%d'",data[i],i+1);
+    else
+        printf("\n%s NOT Present in Above Array",data[i]);
+    return 0;
+}
