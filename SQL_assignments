@@ -18,4 +18,22 @@ Q.3 Create a table marks which stores the marks of 5 subjects(physics,chemistry,
 Q.4 Rename the table Result with StudentScore.
 
  alter table Result rename to Student_score;
- ==========================================================================================
+ ====================================================================================
+ Q.6 Create a table which stores the information about a product . Fields are pid,pname,pqty,pcost. 
+     a) Display records in ascending order of quantity.  
+     b) Display records in descending order of product cost.
+     c) Display record for the product where the cost is highest.
+     d) Display the pid and pname of those products where the pcost is same.
+     
+    create table Product(pid number,pname varchar2(20),pqty_kg number,pcost_rs number);
+select * from product;
+
+insert into product values(201,'Rice',5,150);
+insert into product values(202,'Bread',2,75);
+insert into product values(203,'Wheat',5,120);
+insert into product values(204,'Oil',3,300);
+
+select * from product order by pqty_kg asc;
+select * from product order by pcost_rs desc;
+select * from product where  pcost_rs > 200;
+select pid,pname from product where pqty_kg = 5; 
