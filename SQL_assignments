@@ -37,3 +37,47 @@ select * from product order by pqty_kg asc;
 select * from product order by pcost_rs desc;
 select * from product where  pcost_rs > 200;
 select pid,pname from product where pqty_kg = 5; 
+
+=====================================================================================
+Q.7 Create a table where insert 5 records like name,dob and city of a customer using single insert query.
+
+create table customers(name varchar2(20),dod date,city varchar2(20));
+
+select * from customers
+
+insert all
+into customers(name,dod,city) values('Nimesh',date '2002-06-05','Pune')
+into customers(name,dod,city) values('Ram',date '2022-01-01','Kerala')
+into customers(name,dod,city) values('Umesh',date '2014-11-16','Delhi')
+into customers(name,dod,city) values('Roy',date '2012-12-25','UP')
+into customers(name,dod,city) values('Roma',date '1999-07-05','Banglore')
+
+select * from dual;
+====================================================================================================================
+Q.8 Create a table which stores the salary of 3 employees along with the name and display the names salary wise (highest first).
+
+create table emp3(name varchar2(15),salary number(5));
+
+select * from emp3;
+
+insert all
+into emp3(name,salary) values('Ram',19000)
+into emp3(name,salary) values('Roy',16000)
+into emp3(name,salary) values('Roma',14000)
+
+select *from dual;
+
+select * from emp3 order by salary desc;
+
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
