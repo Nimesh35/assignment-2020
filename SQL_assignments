@@ -68,8 +68,73 @@ into emp3(name,salary) values('Roma',14000)
 select *from dual;
 
 select * from emp3 order by salary desc;
+=====================================================================================================================================================
+Q.9 Update the highest salary of the employee in above question to the minimum of all.
 
-=====================================================================================================================
+update emp3 set salary=10000 where name='Ram';
+====================================================================================================================================================
+Q.10 create a table employee: eid, age, dept, salary. Show name of dept with lowest salary using group by.
+
+create table Employee(eid number,age number,dept varchar2(20),salary number);
+
+insert all
+into employee(eid,age,dept,salary) values (101,26,'data',15000)
+into employee(eid,age,dept,salary) values (102,20,'data',19000)
+into employee(eid,age,dept,salary) values (103,25,'electrical',18000)
+into employee(eid,age,dept,salary) values (104,29,'electrical',11000)
+into employee(eid,age,dept,salary) values (105,24,'software',12000)
+into employee(eid,age,dept,salary) values (106,23,'software',16000)
+select * from dual;
+
+select * from Employee;
+
+select dept,min(salary) as "total salary" from Employee group by dept having min(salary)<19000;
+===============================================================================================================================================
+Q.11 Write a query to perform following operations on the table :
+      a) Create a table as Population :  State, popoulation
+      b) Find minimum population
+      c) Find maximum population
+      d) find average population
+      e) Display name of state population wise in descending order
+      f) Display name of state population wise in ascending order
+      
+      create table population(state varchar2(20), population varchar2(20));
+
+insert all
+into population(state,population) values('UP',110000000)
+into population(state,population) values('Maharashtra',34000000)
+into population(state,population) values('Punjab',15000000)
+into population(state,population) values('Kerala',21000000)
+
+select * from dual;
+
+select * from population;
+
+select state,min(population)as total_pop from population group by state having min(population)<20000000;
+select state,max(population)as total_pop from population group by state having max(population)>100000000;
+select avg(population)as total_pop from population;
+select * from population order by state desc;
+select * from population order by state asc;
+===================================================================================================================================================
+Q.12 Create a table ItemSales : Itemname, Sales, city  
+     Display the following output (Create a query which displays the Total sales citywise)
+     
+     create table Itemsales(Itemname varchar2(20),Sales varchar2(20),City varchar2(20));
+
+insert all
+into ItemSales(Itemname, Sales, City) values('RAM',4,'Pune')
+into ItemSales(Itemname, Sales, City) values(' Hard Disk',3,'Punjab')
+into ItemSales(Itemname, Sales, City) values('Mouse',1,'Delhi')
+into ItemSales(Itemname, Sales, City) values('Phone',4,'Mumbai')
+
+select * from dual;
+
+select *from ItemSales;
+
+select city, sum(Sales) as "Total_Sale" from  ItemSales group by city ;
+===========================================================================================================================================
+Q.13 Make a table which stores the email id and password where password should not be saved if the length is less than 8 character.
+====================================================================================================================================================
 Q.14 Make a table which stores the name and mobile no of customers. where mobile no can not saved in database if the mobile no is less than 10 digits.
 
 create table cus3(name varchar2(20),phone number,check (phone >=1000000000));
@@ -79,6 +144,33 @@ insert into cus3 values('umesh',5546778);
 
 select * from cus3;
 ================================================================================================
+Q.15 Create a table person which stores the ID,name,email where define ID as primary key.Create another table Birthday which stores date of birth and ID.
+     Join both tables and create Foreign key in Birthday.
+     
+     create table Person(ID number,Name varchar2(20),email varchar2(20),primary key(ID));
+create table Birthday(dob date,ID number CONSTRAINT fk_ID REFERENCES Person1(ID));
+
+insert into Person values(201,'Nimesh','nimesh@gmail.com');
+insert into Person values(202,'Umesh','Umesh@gmail.com');
+insert into Person values(203,'Ramesh','Ramesh@gmail.com');
+insert into Person values(204,'Sumesh','Sumesh@gmail.com');
+
+select * from Person;
+
+insert into Birthday values(date'2002-6-5',201);
+insert into Birthday values(date'1999-11-3',202);
+insert into Birthday values(date'1999-7-5',203);
+insert into Birthday values(date'2001-6-14',204);
+
+select * from Birthday;
+
+select P.ID,P.Name,P.email,B.dob from Person P,Birthday B where P.ID=B.ID;
+=======================================================================================================================
+Q.16 Create a table where records of an employee is maintained . 
+     Fields are EID (primary key), Ename (NOT NULL), officeno (Unique), DateOfJoining(NOT NULL),CompanyName(Default),Salary(Check is : salary > 0)
+     Create PersonnelDetails : ID( Foreign Key ) , Addres (NOT NULL), contactno(NOT NULL , UNIQUE) 
+     Join Both tables and Display output
+
 
 
 
