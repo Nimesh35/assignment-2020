@@ -18,6 +18,24 @@ Q.3 Create a table marks which stores the marks of 5 subjects(physics,chemistry,
 Q.4 Rename the table Result with StudentScore.
 
  alter table Result rename to Student_score;
+===========================================================================================================================
+Q.5 Create two tables A and B where A has 3 columns and B has 2 columns , Copy last two columns from table A to Table B.
+
+create table A(rollno number,name varchar2(20),city varchar2(20));
+create table B(name varchar2(20),city varchar2(20));
+
+insert into A values(10,'Ram','Delhi');
+insert into A values(20,'Ram','Pune');
+insert into A values(30,'Roy','Kerala');
+
+insert into B values('Riya','Banglore');
+insert into B values('priya','Mumbai');
+
+select * from A;
+select * from B;
+
+
+insert into B(name,city)select name,city from A;
  ====================================================================================
  Q.6 Create a table which stores the information about a product . Fields are pid,pname,pqty,pcost. 
      a) Display records in ascending order of quantity.  
