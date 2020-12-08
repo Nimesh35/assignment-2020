@@ -210,9 +210,48 @@ Q.17  Create a table Students ---- Rollno( Primary Key ),
       v1 shows personName and Mobile while v2 shows PersonName and Address.
       
       ====================================================================================================================================
-  
-  
-  
+      Q.19 Create a PL/SQL Block which declares the radius of a circle and make a constant pi and assign values as 3.14 to it. Find the area of circle and Print area.
+      
+ ==========================================================================================================================================================
+ q.20 PRINT ALL ALPHABETS IN UPPERCASE IN DESCENDING ORDER
+ ================================================================================================================================================================
+ Q.21 PRINT ALL APLHABETS FROM a to z IN ASCENDING
+ 
+ ======================================================================================================================================================================
+Q.22 PRINT ALL EVEN NUMBERS BETWEEN 10 AND 30 USING WHILE LOOP.USE IF CONDITION TO CHECK.
+
+=========================================================================================================================================================================
+Q.23 PRINT ALPHABETS IN REVERSE ORDER USING FOR LOOP.
+
+========================================================================================================================================================================
+Q.24 PRINT THE FACTORIAL OF A NUMBER USING FOR LOOP.
+===================================================================================================================================================
+Q.25 Create an array of 5 names and print all names in Capital case.
+============================================================================================================================================================
+Q.26 Create an array of 5 names and print all names with length in Capital case.
+      "abc" ===>  ABC : 3 
+===============================================================================================================================================================      
+Q.27 CONVERT A SMALL CASE LETTER TO UPPERCASE AND PRINT IT.
+
+==================================================================================================================================================================
+Q.28 Create a procedure which accepts one parameter as a radius of circle. Declare pi as constant in the procedure and calculate area of circle & print the area in 
+     other PLSQL Block.
+ 
+  ===============================================================================================================================================================
+  Q.29 create a procedure which accepts a single parameter as a integer and it is defined as IN OUT .Procedure returns the cube of the number.
+
+=============================================================================================================================================================
+Q.30 Create following procedures :
+     Employee : eid (primary key),name (Not NULL), age (NOT NULL)
+     a) Pocedure 1 Creates a table
+     b) Pocedure 2 inserts 5 records where age of employee is greater than 18.
+     c) Procedure 3 updates a record based on the employee id.
+     d) Procedure 4 deletes a record based on employee id.
+     e) Procedure 5 shows all records.
+     f) Procedure 6 shows the record based on employee id.
+     g) Procedure 7 arranges all records age wise in ascending order.
+
+ ============================================================================================================================================================== 
 
 
 
