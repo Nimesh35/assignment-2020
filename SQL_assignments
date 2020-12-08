@@ -230,6 +230,19 @@ Q.25 Create an array of 5 names and print all names in Capital case.
 ============================================================================================================================================================
 Q.26 Create an array of 5 names and print all names with length in Capital case.
       "abc" ===>  ABC : 3 
+      
+   DECLARE
+
+TYPE names IS VARRAY(5) OF VARCHAR(20);
+nm names;
+
+BEGIN
+nm := names('nimesh','abhishek','roma','saloni','hemant');
+for k in 1..5 loop
+dbms_output.put_line(UPPER(nm(k)) || ':' || length(nm(k)));
+
+end loop;
+end;   
 ===============================================================================================================================================================      
 Q.27 CONVERT A SMALL CASE LETTER TO UPPERCASE AND PRINT IT.
 
