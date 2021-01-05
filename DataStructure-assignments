@@ -553,6 +553,213 @@ int main()
 	display(qp);
 }
 ===============================================================================================================================================================
+Q11
+
+#include<stdio.h>
+
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 26
+typedef struct 
+{
+	int top;
+	int elements[SIZE];
+}stack;
+
+
+void initialize(stack *sp)
+{
+	sp->top=-1;
+}
+
+//FOR ADDING VALUES TO IT
+void push(stack *sp,int item)
+{
+	if(sp->top == SIZE-1)
+	printf("\nstack overflow\n");
+	else
+	sp->elements[++sp->top]=item;   
+	
+}
+
+//OVERWRITTING
+int pop(stack *sp)
+{
+	int x;             //BECAUSE WE WANT TO RETURN BACK THE VALUE  
+	if(sp->top == -1)
+	printf("\nstack underflow");
+	else
+    x=sp->elements[sp->top--];
+    return x;
+}
+
+void display(stack *sp)
+{
+     int i;
+     
+     for(i=sp->top;i!=-1;i--)
+    {
+        printf("%c\n",sp->elements[i]);
+	}
+}
+int main()
+{	
+	stack s1;
+	
+	initialize(&s1);
+	
+	int i;
+	for(i=65;i<=90;i++)
+	{
+		push(&s1,i);
+	}
+    display(&s1);
+}
+===============================================================================================================================================================
+Q12
+
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 10
+
+typedef struct Odd_st
+{
+int Atop;
+int Aelements[SIZE];
+}oddno;
+
+typedef struct Even_st 
+{
+int Btop;
+int Belements[SIZE];
+}evenno;
+
+void Ainitialize(oddno *s) 
+{
+s->Atop=-1;
+}
+void Binitialize(evenno *s)
+{
+s->Btop=-1;
+}
+
+void Apush(oddno *s,char item) 
+{
+if(A_is_full(s))
+printf("\nStack overflow\n");
+else
+s->Aelements[++s->Atop]=item;
+}
+void Bpush(evenno *s,int item) 
+{
+if(B_is_full(s))
+printf("\nStack overflow\n");
+else
+s->Belements[++s->Btop]=item;
+}
+
+
+int Apop(oddno *s) 
+{
+int x;
+if(A_is_empty(s))
+printf("\nStack underflow");
+else
+x=s->Aelements[s->Atop--];
+
+return x;
+} 
+int Bpop(evenno *s)
+{
+int x;
+if(B_is_empty(s))
+printf("\nStack underflow");
+else
+x=s->Belements[s->Btop--];
+
+return x; 
+}
+
+int A_is_full(oddno*s) 
+{
+if(s->Atop == SIZE-1)
+
+return 1; 
+else
+return 0;
+}
+
+int B_is_full(evenno *s) 
+{
+if(s->Btop == SIZE-1)
+return 1;
+else
+return 0;
+}
+
+int A_is_empty(oddno *s) 
+{
+if(s->Atop == -1)
+return 1;
+else
+return 0;
+}
+
+ 
+int B_is_empty(evenno *s)
+{
+if(s->Btop == -1)
+return 1;
+else
+return 0;
+}
+
+void Adisplay(oddno *a)
+{
+	int x;
+	for(x=a->Atop;x!=-1;x--)
+	{
+		printf("ODD NO ARE : %d\n",a->Aelements[x]);
+	}
+}
+
+void Bdisplay(evenno *b)
+{
+	int x;
+	for(x=b->Btop;x!=-1;x--)
+	{
+		printf("EVEN NUMBER : %d\n",b->Belements[x]);
+	}
+}
+
+int main()
+{
+	oddno a;
+	evenno b;
+	
+	Ainitialize(&a);
+	Binitialize(&b);
+	
+	int i;
+
+	for(i=0;i<SIZE;i++)
+	{
+		int val=i%2;
+		switch(val)
+		{
+		case 1:
+		Apush(&a,i);
+		break;
+		
+		case 0:
+		Bpush(&b,i);
+		break;
+	    }
+    }
+    Adisplay(&a);
+    Bdisplay(&b);
+}
+====================================================================================================================================
 Q13
 #include<stdio.h>
 #include<stdlib.h>
@@ -1710,6 +1917,65 @@ int main()
 	
 }
 =================================================================================================
+Q28
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct st
+{
+	int key;
+	struct st *left;
+	struct st *right;
+}node;
+
+node *newnode(int data)
+{
+	node *t;
+	t=(node*)malloc(sizeof(node));
+	t->key = data;
+	t->left = NULL;
+	t->right = NULL;
+	
+	return t;
+}
+
+node* insert(node *nd,int data)
+{
+	if(nd == NULL)
+	return newnode(data);
+	
+	if(data < nd->key)               //data compared to key of root
+	nd->left = insert(nd->left,data);
+	
+	else if(data > nd->key)           //data compared to key of root
+	nd->right = insert(nd->right,data);
+	
+	return nd;
+}
+
+void inorder(node* root)
+{
+	if(root == NULL)
+	return ;
+	inorder(root->left);
+	printf("%d\t",root->key);
+	inorder(root->right);
+}
+
+int main()
+{
+	node *root = NULL;
+	root = insert(root,50);
+	insert(root,20);
+	insert(root,34);
+	insert(root,43);
+	insert(root,21);
+	insert(root,67);
+	
+	inorder(root);
+}
+
+==================================================================================================================================
 Q29
 #include <stdio.h>
 
