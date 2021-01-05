@@ -523,24 +523,283 @@ public class ass10 {
 }
 ===================================================================================================================
 Q.11 Make an array of 10 numbers and print the average of only even numbers.
+
+package Assignment;
+
+import java.util.Scanner;
+
+class array2 {
+	double avg;
+	public void getavg(double nun)
+	{
+		avg = nun;
+		System.out.println("AVERAGE OF 10 NUMBERS IS : "+avg);
+	}	
+}
+public class ass11 {
+
+	public static void main(String[] args) {
+		double sum = 0.0;
+		double avg;
+		int con = 0;
+		int arr[] = new int[10];
+		
+		array2 ag = new array2();
+		Scanner sd = new Scanner(System.in);
+		
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println("ENTER THE NUMBER "+(i+1)+" : ");
+		    arr[i] = sd.nextInt();
+		    
+		    if(arr[i]%2==0)
+		    {
+		    sum = sum + arr[i];
+		    con++;
+		    }
+		}
+		avg = sum / con;
+		
+		ag.getavg(avg);	
+
+	}
+
+}
+===========================================================================================================================
 Q.12 Create an array of 5 double values and use foreach loop to print every value.
 
+package Assignment;
+
+import java.util.Scanner;
+
+class ass {
+	Scanner sd = new Scanner(System.in);
+	double ay[] = new double[5];
+	public void foreach()
+	{
+		for(int i=0;i<ay.length;i++)
+		{
+			System.out.println("ENTER DOUBLE VALUE : ");
+			ay[i] = sd.nextDouble();
+		}
+		for(double d : ay)
+		{
+			System.out.println("VALUES : "+d);
+		}
+	}
+}
+public class ass12 {
+
+	public static void main(String[] args) {
+		ass a = new ass();
+	    
+	    a.foreach();
+	}
+
+}
+============================================================================================================
 Q.13 Write a program to make a class as Factorial where calculate the factorial in a function the function returns the factorial of the passed number to this function. 
      Print the factorial of the number.
+     
+     package Assignment;
+
+public class ass13 {
+	static int factorial(int n) 
+    { 
+        int res = 1, i; 
+        for (i = 2; i <= n; i++) 
+            res *= i;     //res = res*i
+        return res; 
+    } 
+  
+	public static void main(String[] args) {
+		   int num = 5; 
+	        System.out.println( 
+	            "Factorial of " + num 
+	            + " is " + factorial(5)); 
+
+	}
+
+}
+===============================================================================================================
 
 Q.14 Create a Class Alphabets which is printing Capital case alphabets in its member method. Create another Class where a main function resides. In main method create 
     the object of Alphabets class and call the method which is printing alphabets.
 
+package Assignment;
+
+class Alphabets
+{
+	public void fun1()
+	{
+		
+
+		String s1="hello world";
+		
+
+		System.out.println(s1.toUpperCase());
+	}  
+	
+}
+public class ass14 {
+
+	public static void main(String[] args) {
+		Alphabets ob=new Alphabets();
+		
+		ob.fun1();
+
+	}
+
+}
+==============================================================================================================================
 Q.15 Write a program to create a method in a class which takes the first name as first parameter and last name as second parameter. This method returns the full name. 
     Print full name.
+    
+    package Assignment;
+
+import java.util.Scanner;
+
+class method {
+	String fname,lname;
+      public void getmeth(String a,String b)
+      {
+    	  fname = a;
+    	  lname = b;
+      }
+      
+      public void showfullnm()
+      {
+    	  System.out.println("FULL NAME : "+fname+" "+lname);
+      }
+}
+public class ass15 {
+
+	public static void main(String[] args) {
+		method y = new method();
+	    
+	    Scanner s = new Scanner(System.in);
+	    System.out.println("ENTER THE FIRST NAME : ");
+	    String ab = s.nextLine();
+	    
+	    System.out.println("ENTER THE LAST NAME : ");
+	    String bc = s.nextLine();
+	    
+	    y.getmeth(ab,bc);
+	    
+	    y.showfullnm();
+
+	}
+
+}
+================================================================================================================================
 
 Q.16 Write a program to overload a method named as getResult() 3 times , first definition prints the cube of passed number. Second function prints square of passed 
      number. Third definition print that number.
 
+package Assignment;
+
+public class ass16 {
+	double getresult(double a)
+	{
+		double res;
+		res = a*a*a;
+		return res;
+		
+	}
+	int getresult(int b)
+	{
+		int res;
+		res = b*b;
+		return res;
+	}
+	float getresult(float c)
+	{
+		return c;
+	}
+	public static void main(String[] args) {
+        ass16 a = new ass16();
+		
+		System.out.println(a.getresult(10.3456));
+		System.out.println(a.getresult(35));
+		float h = (float)23.34398483;
+		System.out.println(a.getresult(h));
+
+	}
+
+}
+=======================================================================================================
 Q.17 Write a program to find the sum of digits of a number.
 
+package Assignment;
+
+import java.util.Scanner;
+
+public class ass17 {
+	public long hub;
+    public long digit(long ab)
+    {
+    	long rem;
+    	long sum = 0;
+    	
+        while(ab!='\0')
+        {
+        	rem = ab%10;
+        	sum = sum + rem;
+        	ab = ab/10;
+        }
+        System.out.println("SUM OF DIGITS : "+sum);
+        hub = sum;
+        return hub;
+    }
+public void main(String[] args) {
+	ass17 ass = new ass17();
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.println("ENTER THE NUMBER : ");
+	int sub = sc.nextInt();
+	
+	ass.digit(sub);	
+
+}
+
+}
+=====================================================================================================================================
 Q.18 Write a program to create two objects of a class named as Numbers. In which there is a function getMax(). Assign a value for a number to every object and 
      compare two objects together and print the maximum value
+     
+     package Assignment;
+
+class numbers {
+	int number;
+	public numbers(int x) 
+	{
+		number = x;
+	}
+	void getmax(numbers num1,numbers num2)
+	{
+		if(num1.number > num2.number)
+		{
+			System.out.println(num1.number+" is the maximum value");
+		}
+		else
+		{
+			System.out.println(num2.number+" is the maximum value");
+		}
+	}
+}
+
+public class ass18 {
+
+	public static void main(String[] args) {
+		numbers num1 = new numbers(100);
+		numbers num2 = new numbers(200);
+		
+		num1.getmax(num1,num2);
+	}
+
+}
+===========================================================================================================================
 Q.19 Create an interface named as Calculator and create a method in it as getResult(). 
      7 class are to be defined which are implementing Calculator interface.
      Class A will return factorial of a number.    (Vishal)
@@ -550,16 +809,365 @@ Q.19 Create an interface named as Calculator and create a method in it as getRes
      Class E will return the sum of 5 digit number. (Nimesh)
      Class F will return the sum of 5 values in an array.  (Abhishek)
      Class G will return the temperature in celcius for the given ferhenite value. (Nilesh)
+     
+     package Assignment;
+
+import java.util.Scanner;
+
+interface Calculator
+{
+public double getResult(double a);
+}
+
+class sum implements Calculator 
+{
+    private Scanner s;
+    
+
+    public double getResult(double z)
+    {
+        s=new Scanner(System.in);
+      
+        int num=0, rem=0, sum=0;
+        
+        System.out.println("Entre Number :"); 	
+        num=s.nextInt();
+        while (num > 0) {
+        	rem = num%10;
+        	sum = sum+rem;
+        	num = num/10;        	
+        
+        } 
+        	
+                return sum;
+        
+    }
+}
+public class ass19 {
+
+
+    public static void main(String[] args) 
+    {
+       sum obj=new sum();
+        double z;
+        z=obj.getResult(12);
+        System.out.println("Sum is "+z);
+    }
+
+}
+
+=================================================================================================================================
 Q.20 Write a program to take first name and lastname as a command line arguments and print the full name in capital case along with the length of fullname.
 Q.21 Create a class Person. Create name,mobile,age as instance variables . Make getters and setters and display the records of 3 cusomers using array of objects and 
      print records.
+     
+     package Assignment;
+
+class Person1
+{
+	public String name;
+	public long mobile;
+	public int age;
+	
+	public Person1()
+	{
+		name = "Ginny";
+		mobile = 9175647827L;
+		age = 23;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public long getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(long mobile) {
+		this.mobile = mobile;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+}
+public class ass21 {
+
+	public static void main(String[] args) {
+Person1 arr[] = new Person1[3];
+		
+		arr[0] = new Person1();
+		arr[0].setName("RON WEASLEY");
+		arr[0].setMobile(9208877665L);
+		arr[0].setAge(25);
+		
+		arr[1] = new Person1();
+		arr[1].setName("HARRY");
+		
+		arr[2] = new Person1();
+		arr[2].setAge(27);
+		
+		System.out.println("=============DETAILS OF THE FIRST PERSON=================");
+		System.out.println("NAME : "+arr[0].getName()+" || "+"MOBILE :"+arr[0].getMobile()+" || "+"AGE : "+arr[0].getAge());
+        
+		System.out.println("=============DETAILS OF THE SECOND PERSON================");
+		System.out.println("NAME : "+arr[1].getName()+" || "+"MOBILE :"+arr[1].getMobile()+" || "+" AGE : "+arr[1].getAge());
+        
+		System.out.println("=============DETAILS OF THE THIRD PERSON=================");
+		System.out.println("NAME : "+arr[2].getName()+" || "+"MOBILE :"+arr[2].getMobile()+" || "+" AGE : "+arr[2].getAge());    
+	}
+
+}
+-===============================================================================================================================================
 Q.22 Define name and salary of an employee both as a string variable. Define a method which updates the salary of an employee by 1000. Print updated salary with name.
+
+package Assignment;
+class employ {
+	String name;
+	String salary;
+	
+	public void getdetails()
+	{
+		name = "Fred";
+		salary = "25000";
+		
+		System.out.println("NAME : "+name);
+		int salin  = Integer.parseInt(salary);
+		System.out.println("SALARY : "+salin);
+		
+	}
+	public void updsal()
+	{
+		System.out.println("NAME : "+name);
+		int sal = Integer.parseInt(salary)+1000;
+		System.out.println("SALARY : "+sal);
+	}
+}
+public class ass22 {
+
+	public static void main(String[] args) {
+        employ emp = new employ();
+		
+		emp.getdetails();
+		
+		System.out.println("SALARY AFTER BONUS==================================");
+		emp.updsal();
+
+	}
+
+}
+=======================================================================================================================
 Q.23 Write a program to declare a sring object using literal and assign a string "Hello" in it. Print the Hello using charAt() method in Capital Case.
+
+package Assignment;
+class pub {
+	  
+	public void func(char arr[])
+	{
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println(Character.toUpperCase(arr[i]));
+		}
+    }
+}
+public class ass23 {
+
+	public static void main(String[] args) {
+		String st = new String();
+		
+		char arr[] = new char[5] ;
+		st = "Hello";
+		
+		for(int i=0;i<st.length();i++)
+		{
+			arr[i] = st.charAt(i);
+		}  
+		pub p = new pub();
+		p.func(arr);
+
+	}
+
+}
+========================================================================================================================
 Q.24 Write a program to print the length of a string without using length attribute.
+
+package Assignment;
+
+import java.util.Scanner;
+
+public class ass24 {
+	public void show(String st)
+    {
+    	int i = 0;
+    	for(char s : st.toCharArray())
+    	{
+    		i++;
+    	}
+    	System.out.println("LENGTH : "+i);
+
+    }
+	
+    public static void main(String[] args) {
+	ass24 a = new ass24();
+	
+	Scanner sc= new Scanner(System.in);
+	
+	System.out.println("ENTER THE STRING : ");
+	
+	String s = sc.nextLine();
+	a.show(s);
+
+	}
+
+}
+================================================================================================================================================
 Q.25 Take user name and password from user.If user name is "admin" and password is "Abcd1234" then print Welcome UserName . Compare userName using equalIgnoreCase(). 
      Compare password without using equalIgnoreCase().
+     
+     package Assignment;
+
+import java.util.Scanner;
+
+public class ass25 {
+	String usernm;
+	String passwd;
+	Scanner st = new Scanner(System.in);
+    public void takedetails(String user)
+    {
+    	try{
+    		if(user.equalsIgnoreCase("admin"))
+    		usernm = user;
+    		
+    	    else
+    		throw new Exception();
+            
+    		try {
+    			   System.out.println("ENTER THE PASSWORD : ");
+    			   String pass = st.nextLine();
+    			   
+    	     	   if(pass.equalsIgnoreCase("Abcd1234"))
+             	   {
+    		       passwd = pass;
+    		       System.out.println("WELCOME "+usernm);
+    	           }
+    		       else
+    			   throw new Exception();
+    		       }
+    		catch(Exception ea)
+    		{
+    	        System.out.println("PASSWORD IS INVALID,PLEASE ENTER AGAIN");
+    		}
+    	}
+    	catch(Exception ea)
+    	{
+    		System.out.println("USERNAME IS INVALID");
+    	}
+    }
+	public static void main(String[] args) {	
+	ass25 as = new ass25();
+	
+	Scanner sc = new Scanner(System.in);
+	
+    System.out.println("ENTER THE USERNAME : ");
+    String nm = sc.nextLine();
+
+    as.takedetails(nm);
+
+	}
+
+}
+=======================================================================================================================================================
 Q.26 create a class Result where marks of 5 subjects are taken from user in a method as InputMarks() and print the percentage and grade based on percentage in a 
      different method as ShowPercentage(). Print the Highest and Lowest Marks in a subject.
+     
+     package Assignment;
+
+import java.util.Scanner;
+
+class result200 {
+	Scanner sc;
+	public int sum = 0;
+	result200()
+	{
+		sc = new Scanner(System.in);
+	}
+	public void InputMarks()
+	{
+		int arr[] = new int[5];
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println("ENTER THE MARK "+(i+1)+" : ");
+			arr[i] = sc.nextInt();
+			sum = sum +arr[i];	
+		}
+		Showpercentage();
+		FINDHIGHEST(arr);
+	}
+	public void Showpercentage()
+	{
+		double per;
+		per = sum * 100 / 500;
+		System.out.println("PERCENTAGE IS : "+per);
+		
+		if(per>=80 && per<=100)
+		{
+			System.out.println("GRADE IS : A");
+		}
+		else if(per>=60 && per<80)
+		{
+			System.out.println("GRADE IS : B");
+		}
+		else if(per>=40 && per<60)
+		{
+			System.out.println("GRADE IS : C");
+		}
+		else if(per>=0 && per<=40)
+		{
+			System.out.println("GRADE IS : FAILED WITH D");
+		}	
+	}
+	public void FINDHIGHEST(int arr[])
+	{
+		int biggest = arr[0];
+		
+		biggest = Math.max(arr[1],biggest);   
+		biggest = Math.max(arr[2],biggest);
+		biggest = Math.max(arr[3],biggest);
+		biggest = Math.max(arr[4],biggest);
+        
+		System.out.println("HIGHEST MARK : "+biggest);
+		
+		int lowest = arr[0];
+		
+		lowest = Math.min(arr[1],lowest);   
+		lowest = Math.min(arr[2],lowest);
+		lowest = Math.min(arr[3],lowest);
+		lowest = Math.min(arr[4],lowest);
+        
+		System.out.println("LOWEST MARK : "+lowest);
+	}
+}
+public class ass26 {
+
+	public static void main(String[] args) {
+		result200 res = new result200();
+	    
+	    res.InputMarks();
+
+	}
+
+}
+==========================================================================================================================================
 Q.27 Display the following Pattern :
        1
        1 2
@@ -567,12 +1175,109 @@ Q.27 Display the following Pattern :
        1 2 3 4
        1 2 3 4 5
 
+package Assignment;
+
+public class ass27 {
+	public static void main(String[] args) {
+		
+		
+		for(int i=1;i<=5;i++)        
+		{
+			for(int j=1;j<=i;j++)    
+			{
+				     System.out.print(j);
+		
+	         }
+			System.out.println();
+
+         }
+}
+	
+}
+
+=======================================================================================================================================
 Q.28 Declare a string as "Welcome to Java Programming" , Print "Java" from this String. 
 
+package Assignment;
+
+public class ass28 {
+
+		public static void func()
+	    {
+	    	String st = "Welcome to Java Programming";
+	    	
+	    	System.out.println(st);
+	    	System.out.println(st.substring(11,15));
+	    }
+		public static void main(String[] args) {
+	    ass28 as = new ass28();
+	    
+	    ass28.func();
+
+	}
+
+}
+======================================================================================================================================================
 Q.29 Write a program to reverse the entered string without using reverse method.
 
+package Assignment;
+
+import java.util.Scanner;
+
+public class ass29 {
+	 public void rever(String no) 
+	    {
+	    	for(int i=no.length();i>=0;--i)
+	    	{
+	    		System.out.println(no.charAt(i-1));
+	    	}
+	    }
+	  
+		public static void main(String[] args) {
+	    ass29 asi = new ass29();
+	    
+	    Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("ENTER THE STRING : ");
+	    String st = sc.nextLine();
+	    
+	    asi.rever(st);
+	    sc.close();
+	}
+
+}
+===========================================================================================================================
 Q.30 Make an array of 5 integers and print elements in reverse order.
 
+package Assignment;
+
+public class ass30 {
+	public void sub(int arr[]) {
+	    
+	    try {
+
+	          for(int i=arr.length;i>=0;--i)
+	          {
+	    	  System.out.println(arr[i-1]);
+	          }
+	        }
+	    catch(Exception e)
+	    {
+	        e.printStackTrace();	
+	    }
+	  }
+		public static void main(String[] args) {
+			ass30 ess = new ass30();
+			
+			int arr[] = new int[] {10,12,32,65,23};
+			
+			
+	        ess.sub(arr);
+
+	}
+
+}
+===================================================================================================================================
 Q.31 Make an array of 10 numbers and print the sum of all even elements.
 
 Q.32 Make an array of 3 integers and find the maximum of 3 nos and print it.
