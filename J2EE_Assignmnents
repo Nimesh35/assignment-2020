@@ -1,0 +1,103 @@
+Q.1 Create a servlet on extending HttpServlet class which prints a Welcome message on the WebPage.
+Q.2 Create a Servlet which accepts two numbers as parameters in the form of query string and prints the sum,multiplication,Division,Subtraction
+Q.3 Create a Servlet which accepts firstname & lastname from query string and display the fullname in Capital case along with length.
+Q.4 Create 2 servlets and make a web.xml file in which a Integer value is defined as a parameter. First servlet is printing the square value of the parameter and second 
+    servlet is printing the factorial of the parameter.
+Q.5 Create 2 servlets and one web.xml file in which name is set as a parameter for first servlet and city is set as a parameter for second servlet. First servlet prints
+    the length of the name and second servlet prints the city name in Capital case.
+Q.6 Create a servlet which displays all records of a table.
+Q.7 Create a servlet which accepts id from the URL and delete the record for that id.
+Q.8 Create a form which accepts ID and City and saves the data in the database.
+Q.9 create 2 servlets. In first servlet create an object of employee class which sets the attribute value for employee object .In second servlet retrieve the values
+    of employee object and display all information about an employee.
+Q.10 Create an Application which displays Marksheet of a Student.
+    a) Create a servlet1 which takes marks of 5 subjects from Html page as marksentry.html. Also takes name of student. Insert record in database.
+    b) Create a servlet2 which displays the result of all students on calulating percentage. Display Student name along with Percentage.
+    c) Display Records Percentage wise in Descending order.
+    d) Delete record of the student who got minimum percentage.
+    e) Update name of the student who got Maximum Percentage.
+Q.11 Create a Login Page where Username & password is entered. If username is "abcd" and password is "1234" then Display a message "Welcome abcd" on the second HTML 
+     Page display.html .If Username or password is incorrect then Display the message "Invalid Username/password" in third webpage Invalid.html. Write code to validate
+     username & password in a servlet
+Q.12 Create a web page Form.html which accepts the user details like Username and password. If the length of password is less than 8 characters then send the response on
+     the web page as error.html which displays message "Password should not be less than 8 characters" ,If password is valid the send the response to valid.html using 
+     sendRedirect() method.
+Q.13 Make a filter between the form.html in above question and a servlet. The filter will check the same validation above and sends the response to the valid.html if the
+     password is valid. If password is invalid then display the form.html on giving a message "Password Invalid".
+Q.14 Make a table stores records customers cid (primary key),cname, city,contact. create a webpage customers.html which is accepting the data from the text boxes.
+     Make a filter which is applied on a servlet and checks the contactno. If contactno for any customer is same then record in the database table should not be added and
+     a webpage failure.html will be displayed with message "Contact no can not be same" ,If contactno is different then display a Page named as Success.html shows 
+     a message "Record Added successfully".
+Q.15 Create a Listener Class which creates a table for a dynamic project and this table has 3 columns sno, city,temperature. Make a servlet which inserts the records for
+     5 cities in the table.
+Q.16 Create two JSP pages : Form.jsp and Display.jsp.
+     Form.jsp has two fields as First Name and Last Name.
+     Create a Filter CheckLength which is applied on Display.jsp, If the length of fristname & lastname is zero then Filter will send the response back to the Form.jsp
+     otherwise it sends the request to Display.jsp which Displays the Full Name.
+Q.17 Create a Jsp Page which takes the user data like name and contact no  and sends the data to another Jsp page which accepts the data and checks if the 
+     username and contact is not empty then it stores the data in the database table.
+Q.18 Create a Jsp page which sends the data to the Servlet and Servlet displays the data dynamically.
+Q.19 Create a form which takes firstname & lastname and display the fullname in other jsp page using EL.
+Q.20 Make a Jsp Page where two textboxes as rollno and name. This page includes other page data where create a selection box to accept city value.Display Rollno,name
+     and city on the page.
+Q.21 Create a registration form which takes details of a customer and create a servlet which accepts the data and print it in another JSP page as Display.jsp.   
+Q.22 Create a form.jsp which accepts two numbers from user and sends numbers to other jsp page in which compare two numbers using JSTL tag and display the largest number.
+Q.23 Create a form.jsp which accepts username & password and submits the data to other jsp page which checks if the password is valid then sends the response to 
+     success.jsp page which displays a message as "Valid Login" otherwise sends the response to failure.jsp which displays message "Invalid login" .Use JSTL tag to compare.
+Q.24 Make a JSP page including 2 form fields in which one is hidden and display the Information on other JSP page including hidden information.
+Q.25 Make a servlet which is called first as a Home page on running the project and this servlet is creating a form where Name, City(selection box) and Radio button
+     and display the complete information in a JSP Page in tabular form.
+Q.26 Create a Jsp page which takes name from user and calls servlet 1 , servlet1 calls servlet2 and servlet2 calls servlet3 .Servlet 3 displays the message as 
+     Welcome Username.
+Q.27 Create a JSP Page and forward the request from the page to outside application. (Nilesh)
+
+Q.28 Create a servlet which is run using URL and display the parameter value which is passed as a name (vishal)
+
+Q.29 Write a configuration of a parameter in xml file and display the parameter value in the servlet (Hemant)
+
+Q.30 Create a JSP Page which sets the attribute value and sends the value in other page which gets value and display it. (Nimesh)
+
+Q.31 Create a bean class which calculates the cube of the passed no from the web page and display the square on the JSP Page. (Abhishek) 
+
+Q.32 Create two servlets ,servlet1 & servlet2 .servlet1 will be called first when you run project.
+       Servlet1 takes username, password from user. When you click on submit button then Servlet2 will display message "Welcome username". 
+   
+Q.33 Create two servlets and Run the first Servlet file and set the employee object as an attribute in the first servlet and display the values of employee object
+       in the second servlet. 
+ 
+Q.34 Create a JSP Web page which have the fields name, email,city  and a submit button. Send data from this JSP page to the servlet .In this servlet you have to create
+     a Logger .Log messages will be shown if the name ,and email is empty.If not empty then print all the details on the first JSP page.
+     
+Q.35 Create a Web page which has some dummy contents written in the page. Create a Selection Box which has three languages Hindi, English, Bengali. If you select any one
+     language then the contents of the page should be displayed in the respective language.
+
+Q.36 Generate a log file where the messages are stored after login to the web page .Message : Date & Time [Logged In]
+
+Q.37 Create a maven project in which add data from the user into the database.
+
+Q.38 Create a maven project which is a simple project in which take user input in a method of a class for which a Logger is created and a log file is maintained on the
+     disk when all user details have been taken by user.
+Q.39 Create an interface Account in a dynamic web project which has a method as Rate_of_interest(). There are two classes which are SavingAccout and CurrentAccount which are
+     implementing the interface. Create a JSP Page which takes customer information as CustomerName,AccountType(selection Box) and Ammount. If a user selects 
+     a Saving Account then returning Rate of interest will be 7.5 .If User selects Current account then  Rate of interest will be 5.5. Rate of interest is defined by
+     the SavingAccount and CurrentAccount.Display information in other JSP Page.Get input from user in first JSP and Tranfer data to Servlet then Servlet transfers data to
+     Second JSP page.
+
+Q.40 Create a table customer_Details which stores the EmailID & password of the customer .EmailID is primary key.
+     Create a Dynamic Project using Maven. There is a Customer class(Entity Class) which has emailID and Password as fields.
+     Create a DAO class which sets the Email ID and Password in the table through the object of Customer class.
+     Create a Servlet which displays the Email Ids of all cusomers.
+    
+Q.41 Make a Jsp Page which accepts Username and age of a person and submits the data to other JSP page(display.jsp) .In display.jsp Make a check using Core tag that
+     If the age of Person is more than 18 then Page should display message "You are elegible to vote" otherwise it should Display "You are not elegible to vote".
+     
+Q.42 Create a JSP Page which accepts a Full Name from the user and do the following : 
+      1) Name should be displayed in capital case using JSTL tag
+      2) Length of the name should be displayed
+      3) Display the Firstname only
+      4) Display the length of firstname
+      5) Display the Fullname 5 times on the page
+     
+Q.43 Make a Servlet which creates a Form where Username and Password is to be taken and submitted to second servlet .
+      Create a filter which checks the username is "XYZ" and Password is "1234" .If it is valid then a session is created on the second servlet for the username.
+      In second servlet create a submit button which sends the information to third servlet which displays the Username. 
