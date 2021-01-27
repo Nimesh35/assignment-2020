@@ -1,0 +1,120 @@
+1.Create a Table of 3 columns and 4 records . Headings are : Sno, Name, Photo.
+-->
+<html>
+<head>
+<title>ASS1</title>
+</head>
+<body>
+    <table border="5">
+    <caption>Student Information</caption>
+ <tr>
+     <th>srno</th>  
+     <th>Name</th>
+     <th>Photo</th>
+</tr>
+     <tr>
+         <td>201</td>
+         <td>Rahul</td>
+         <td><img src="Rahul.jsp" alt="Rahul" width="100" height="100"></td>
+    </tr>
+        
+        <tr>
+         <td>202</td>
+         <td>Roy</td>
+         <td><img src="Roy.jpg" alt="Roy" width="100" height="100"></td>
+    </tr>
+        
+        <tr>
+         <td>203</td>
+         <td>Abhi</td>
+         <td><img src="Abhi.jpg" alt="Abhi" width="100" height="100"></td>
+    </tr>
+        
+        <tr>
+         <td>204</td>
+         <td>Amar</td>
+         <td><img src="Amar.jpg" alt="Amar" width="100" height="100"></td>
+    </tr>
+    
+    </table>
+</body>
+</html>
+=================================================================================================================================================================
+2.Create a hyperlink on the web page and this link will switch to other webpage. In second page there is a link as "Back" which will display the first page.
+-->
+1)
+<html>
+<body>
+<h1>Webpages</h1>    
+    
+    <a href="ASS2b.html">Click</a>
+    
+  <h1>first page</h1>
+</body>
+</html>
+--------
+2)
+<html>
+<body>
+<h1>Webpages</h1>    
+    
+    <a href="ASS2b.html">Back</a>
+        
+  <h1>second page</h1>
+</body>
+</html>
+============================================================================================================================================================
+3.Create a Paragraph and apply the tags on this paragraph : bold,italic,underline, Mark, strike ,superscript and subscript, emphasis,strong,big.
+-->
+<html>
+<head>
+    <title>My Page</title>
+</head>
+    <body>
+    <p>A <b>paragraph</b> is a series of <i>related sentences developing a central idea, called the topic.</i><u>Try to think about paragraphs </u>in terms of X<sup>3</sup> -Y<sub>2</sub>thematic unity: a<em>paragraph is a sentence or a group</em> of sentences that supports one central, unified idea. Paragraphs add one <strike>idea at a time to your broader argument.</strike> All in all, a strong and coherent <strong>paragraph starts and ends</strong> itself, and so there's no need to count<big>paragraphs when the argument</big> is clear and <mark>directed to the comapany</mark></p>
+    </body>
+</html>
+===============================================================================================================================================================
+4.Create an image in the web page which has the width as 300 and height as 400 and display the title as "MyImage". Create same image as a hyperlink , clicking on the image will 
+  show the description about the image.
+  -->
+  1)
+  <html>
+<body>
+   
+    <a href="Ass4a.html" title="MyImage" target="_blank"><img src="https://www.telegraph.co.uk/content/dam/films/2016/12/13/Despicable-Me-minions_trans_NvBQzQNjv4Bqhm8Nz2Lbt1QJYKnO-tr9uzz_Mk7wtUGQFBg0u5IWSyU.jpg?impolicy=logo-overlay" style="width:300;height: 400" border=5></a>  
+    
+</body>
+</html>
+----------
+2)
+<html>
+<body style="color: blue">
+    
+    <p>Friendship is a relationship of mutual affection between people. It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy.</p>
+    
+</body>
+</html>
+=========================================================================================================================================
+5.Create a list of 3 website names and create every list item as a hyperlink.  
+-->
+<html>
+<head>
+
+</head>
+<body>     
+    <li>
+    <a href="https://www.google.com/">www.google.com</a>
+    </li>
+    
+     <li>
+    <a href="https://github.com/">www.github.com</a>
+    </li>
+    
+       <li>
+    <a href="https://outlook.office.com">www.outlook.com</a>
+    </li>
+</body>
+</html>
+======================================================================================================================================================================
+======================================================================================================================================
