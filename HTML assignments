@@ -262,6 +262,8 @@ home.jsp
 </html>
 =================================================================================================================================================
 7 Create a LoginPage in which background color of textbox should be skyblue. Placeholder should be applied and password length must be atleast 8 characters.
+
+
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
   stored in the database table as City along with description.
 9 Make an ordered list in reversed manner.
@@ -286,3 +288,67 @@ home.jsp
    in both pages where header background color should be pink and some text is displayed as heading. Footer will display the todays date in (dd-mm-yyyy) in red color in
    center of the page.
 11 Make a form which accepts name and date of birth of a person and stores it in the database.Use date type to take date of birth.
+
+====================================================================================================================================================
+12 Create 3 input text boxes and a submit button. Apply the background color for all text boxes as pink using class selector and change the font color of the submit button
+    using the id selector.
+-->
+
+<html>
+<head>
+    
+<style>
+    
+    .c1
+    {
+        background-color: pink;
+        
+    }
+    
+    #id1
+    {
+          color: blue;
+    }
+    
+</style> 
+</head>
+<body>
+<form>
+      
+Enter Name<input type="text" class="c1"><br>
+
+Enter Age<input type="number" class="c1"><br>
+
+Enter Roll no<input type="number" class="c1"><br>
+    
+<input type="submit" value="SUBMIT" id="id1"><br>
+
+</form>  
+</body>
+</html>
+
+=======================================================================================================
+13 Create a group selector to set the padding (25px) of a division and a paragraph text.
+-->
+<html>
+
+ 
+
+    <head>
+    <style>
+        
+    div,p
+        {
+          padding: 25px;
+            
+        }    
+        
+    </style>
+    </head>
+    <body>
+        
+     <div>Welcome to my websites</div>
+        
+        <p>Hello World</p>
+</body>
+</html>
