@@ -434,11 +434,105 @@ padding: 50px;
 </html>
 -==================================================================================================================
 16 Take three integer variables in Javascript.Assign values to first two variables. Print the Sum in the Heading tag and console window.
+-->
+<html>
+<head>
+</head>
+    <body>
+        <h1>Sum</h1>
+        <script>
+     
+            
+            var x=2;
+            var y=3;
+            var sum=x+y;
+            
+            document.write("Sum :"+sum+"<br>");
+            console.log(sum);
+
+            
+        </script>
+        
+    </body>
+</html>
+===========================================================================================================================================
 17 Assign firstname & lastname and print the full name in the alert box.
+
+===============================================================================================================================================================
 18 Display the image with the border 5px , Brown color and image should be displayed in the right of the page along with the Paragraph .Set the image width and heigth
    to 150px and 150px.
+   -->
+   
+<html>
+
+<head>
+
+<style>
+
+    img
+
+    {
+        border: 5px solid brown;
+        width: 150px;
+        height: 150px;
+        border-color: brown;
+        float: right;
+    }
+
+</style>
+</head>
+<body>
+
+    <p>Friendship is a relationship of mutual affection between people. It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy</p>
+    <img src="image3.jpg">
+    <p>Friendship is a relationship of mutual affection between people. It is a stronger form of interpersonal bond than an association, and has been studied in academic fields such as communication, sociology, social psychology, anthropology, and philosophy</p>
+</body>
+</html>
+=======================================================================================================================================================
 19 Create a JSP Home Page with a Menu bar in it. Create 3 web pages and make a menubar for these links as a vertical menu bar. When clicked on any link , the respective
    webpage should be displayed and all web pages should be linked to each other.
+   -->
+   
+   ==================================================================================================================================================================
 20 Create a form with 2 fields and set the Autofocus property to the first field.
+-->
+<html>
+
+<head>
+<style>
+
+</style>
+</head>
+<body>
+        <form>
+            First Name<input autofocus type="text"> <br>
+            Last Name<input type="text">
+            <input type="submit" value="Submit">
+        </form>
+</body>
+</html>
+========================================================================================================================================================================
 21 Create a Hyperlink and apply the linkcolor accordingly : 
    Activelink : yellow
+   visitedLink: Green
+   -->
+   <html>
+    <head>
+        <style>
+          a:active
+            {
+                color: yellow;
+            }
+            
+            a:visited
+            {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+       <a href="page2.html">Click</a>
+    </body>
+</html>
+
+=========================================================================================================================================================
