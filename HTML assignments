@@ -457,6 +457,23 @@ padding: 50px;
 </html>
 ===========================================================================================================================================
 17 Assign firstname & lastname and print the full name in the alert box.
+-->
+<html>
+<head>
+
+</head>
+<body>
+<script>
+    function fun()
+    {
+        var firstname="Nimesh";
+        var lastname="Udayan";
+        alert(firstname+" "+lastname);
+    }
+</script>
+    <button onclick="fun()">Click</button>
+</body>
+</html>
 
 ===============================================================================================================================================================
 18 Display the image with the border 5px , Brown color and image should be displayed in the right of the page along with the Paragraph .Set the image width and heigth
