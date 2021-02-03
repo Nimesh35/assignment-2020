@@ -639,3 +639,28 @@ padding: 50px;
 </html>
 
 ===============================================================================================================================================================
+27 Make an Object as person which has firstname and lastname and print the Full name in capital.
+=====================================================================================================================================================
+28 Create an array of 5 cities and print the city names in reverse order.
+-->
+
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+         var city=new Array("Pune","Mumbai","Chennai","Delhi","Kerala");
+        
+         document.write("<br>");
+        document.write(city.reverse());
+    </script>
+</body>
+</html>
+
+====================================================================================================================================================
+29 Take two numbers as input in the dialogbox and calculate sum and print it.
+=======================================================================================================================================================
+30 Create a confirm box on giving some message.If User clicks Ok button , then background color of the body should be green, If user clicks on cancel button then 
+    background color should be red.
+================================================================================================================================================================
