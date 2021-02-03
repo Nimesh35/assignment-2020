@@ -628,6 +628,7 @@ padding: 50px;
         document.write("<li>"+Name[1]+"</li>");
         document.write("<li>"+Name[2]+"</li>");
         document.write("<li>"+Name[3]+"</li>");
+        document.write("<li>"+Name[4]+"</li>");
         document.write("</ol>");
         
 ////////////////////////////////////////////////////////
@@ -640,6 +641,27 @@ padding: 50px;
 
 ===============================================================================================================================================================
 27 Make an Object as person which has firstname and lastname and print the Full name in capital.
+-->
+<html>
+<head>
+</head>
+
+<body>
+    
+     <script>
+           
+            var person=
+                {
+                    "firstname": "nimesh",
+                    "lastname": "udayan",
+                }
+            
+            document.write(person.firstname.toUpperCase()+" "+person.lastname.toUpperCase());  
+                
+    </script>
+    
+</body>
+</html>
 =====================================================================================================================================================
 28 Create an array of 5 cities and print the city names in reverse order.
 -->
@@ -663,4 +685,32 @@ padding: 50px;
 =======================================================================================================================================================
 30 Create a confirm box on giving some message.If User clicks Ok button , then background color of the body should be green, If user clicks on cancel button then 
     background color should be red.
+    -->
+    <html>
+    <head>
+    </head>
+    <body>
+    
+        <h1 id="id1" style="background-color: green"></h1>
+        
+        <h1 id="id2" style="background-color: red"></h1>
+        <script>
+            var st=confirm("Are you confirm ?");
+            
+                     
+            if(st)
+                {
+                    var message="Welcome to my website" ;
+                    document.getElementById("id1").innerHTML=message;
+                }
+            else
+                {
+                    var message="Please try again !";
+                    document.getElementById("id2").innerHTML=message;
+                    
+                }
+        </script>
+    </body>
+</html>
+
 ================================================================================================================================================================
