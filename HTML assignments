@@ -691,9 +691,9 @@ padding: 50px;
     </head>
     <body>
     
-        <h1 id="id1" style="background-color: green"></h1>
+        <h1 id="id1" ></h1>
         
-        <h1 id="id2" style="background-color: red"></h1>
+       
         <script>
             var st=confirm("Are you confirm ?");
             
@@ -701,16 +701,19 @@ padding: 50px;
             if(st)
                 {
                     var message="Welcome to my website" ;
+                   document.body.style.backgroundColor="green";
                     document.getElementById("id1").innerHTML=message;
                 }
             else
                 {
                     var message="Please try again !";
-                    document.getElementById("id2").innerHTML=message;
+                     document.body.style.backgroundColor="Red";
+                    document.getElementById("id1").innerHTML=message;
                     
                 }
         </script>
     </body>
 </html>
+
 
 ================================================================================================================================================================
