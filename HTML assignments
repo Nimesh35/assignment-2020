@@ -256,7 +256,7 @@ home.jsp
                 <a href="footer.jsp">footer Click</a>
    
                </li>
-    
+    mk
          </ul>
 </body>
 </html>
@@ -285,10 +285,108 @@ PASSWORD<input style="background-color: skyblue" type="password" placeholder="En
 </body>
 </html>
 
-
+====================================================================================================================================================================
 
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
   stored in the database table as City along with description.
+  
+  htmlASS8.html
+  
+  <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="HtmlASS8">
+<table border="4">
+<tr><td>CITY</td><td> 
+<select name="cy" autofocus multiple>
+<option selected>Select city...</option>
+<option>PUNE</option>    
+<option>MUMBAI</option>
+<option>SOLAPUR</option> 
+</select></td></tr>
+<tr><td>DESCRIPTION</td></tr>
+<tr><td><textarea rows="4" cols="4" style="resize:none;width: 300px;height: 300px" name="ds" ></textarea></td></tr>
+
+<tr><td><input type="submit"></td></tr>
+
+</table>
+</form>
+</body>
+</html>
+
+-------------------
+HtmlASS8.java
+
+package orb.demo;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class HtmlASS8 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		
+		PrintWriter pw = response.getWriter();
+	    
+		String city[] = request.getParameterValues("cy");
+		
+		String desc = request.getParameter("ds");
+	    
+	    try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","root");
+			
+			Statement st = cn.createStatement();
+			
+			if(city!=null)
+			{
+                 for(int i=0;i<city.length;i++)
+                 {
+                	 
+			     String query ="insert into ser values('"+city[i]+"','"+desc+"')";
+			    
+			     int k = st.executeUpdate(query);
+                 }
+			
+			}
+			else
+			{
+				pw.print("NOT SELECTED");
+			}
+			
+			pw.print("<br>INSERTED SUCCSSFULLY........");
+		}
+	    catch(Exception ea)
+	    {
+	    	ea.printStackTrace();
+	    }
+		
+	
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+=========================================================================================================================================================================
 9 Make an ordered list in reversed manner.
 -->
 
@@ -620,6 +718,37 @@ padding: 50px;
 </html>
 ========================================================================================================================================================
 25 Make an integer array of 5 numbers in a function and print the average of array.
+-->
+<html>
+<body>
+<script>
+    function fun()
+    {
+      var ar = [20,33,18,22,25];
+      
+      var total=0; 
+      document.write("length of the array: "+ar.length);
+        
+      /*document.write("AVERAGE WILL BE : "+(ar[0]+ar[1]+ar[2]+a[3]+a[4])/ar.length);*/
+        
+        for(var i=0;i < ar.length;i++)
+            {
+                total+= ar[i];
+            }
+        
+        var avg= total / ar.length;
+        
+        console.log("Average of the array will be : "+avg);
+        
+        document.write("<br>"+"Average of the array will be : "+avg);
+    }
+    
+    fun();
+    
+</script>    
+    
+</body>
+</html>
 ==================================================================================================================================================================
 26 Create an array of 5 names and print the last two names on creating subarray. Add a name in the 2nd index of the array and print array in reverse order.
 -->
@@ -705,6 +834,32 @@ padding: 50px;
 
 ====================================================================================================================================================
 29 Take two numbers as input in the dialogbox and calculate sum and print it.
+-->
+
+<html>
+<body>
+    <h2>SUM OF NUMBERS IS : </h2>
+    <h2 id="id1"> </h2>
+<script>
+    
+    var ft = Number(prompt("ENTER NUMBER 1 : "));
+    
+    var lt = Number(prompt("ENTER NUMBER 2 : "));
+    
+    if(ft!=0 & lt!=0)
+        { 
+            var sum = ft + lt;
+            document.getElementById("id1").innerHTML=sum;
+        }
+    else
+    {
+            var msg = alert("PLEASE ENTER A NUMBER");
+            document.write(msg);
+    }
+    
+</script>    
+</body>
+</html>
 =======================================================================================================================================================
 30 Create a confirm box on giving some message.If User clicks Ok button , then background color of the body should be green, If user clicks on cancel button then 
     background color should be red.
