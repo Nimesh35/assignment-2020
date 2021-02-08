@@ -262,6 +262,29 @@ home.jsp
 </html>
 =================================================================================================================================================
 7 Create a LoginPage in which background color of textbox should be skyblue. Placeholder should be applied and password length must be atleast 8 characters.
+-->
+<html>
+<head>
+    </head>
+<body>
+  <form>      
+<b>
+
+USERNAME<input style="background-color: skyblue" type="text" placeholder="Enter username" >
+<br>
+
+PASSWORD<input style="background-color: skyblue" type="password" placeholder="Enter password" minlength="8" ">
+<br>
+
+<input type="submit" value="SUBMIT"><input type="reset" value="CLEAR" >
+
+</b>
+ 
+</form>  
+    
+</body>
+</html>
+
 
 
 8 Make a page where create a selection box of cities and a textarea where the information about city is to be entered. Once click on submit button the data is to be 
