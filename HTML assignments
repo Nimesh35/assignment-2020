@@ -795,6 +795,75 @@ submitted and display the username in the servlet.
 
 ======================================================================================================================================================================
 34 Create a JSON data which contains book information for three books. Access all the details of every book like bookid,booktitle,bookprice.
+-->
+<html>
+   
+    <head>
+    </head>
+   
+    <body>
+      
+        BOOK-1 : <span></span><br>
+        <br>
+         BookID : <span id="i1"></span><br>
+         BookTitle : <span id="i2"></span><br>
+         BookPrice : <span id="i3"></span><br>
+        <br>
+        <br>
+        
+        BOOK-2 : <span></span><br>
+        <br>
+         BookID : <span id="a1"></span><br>
+         BookTitle : <span id="a2"></span><br>
+         BookPrice : <span id="a3"></span><br>
+        <br>
+        <br>
+        
+        BOOK-3 : <span></span><br>
+        <br>
+         BookID : <span id="z1"></span><br>
+         BookTitle : <span id="z2"></span><br>
+         BookPrice : <span id="z3"></span><br>
+        <br>
+        <br>
+       
+             <script>
+           
+            var book1=    
+            {
+              "BookID": 201,
+              "BookTitle": "Harry Potter",
+              "BookPrice": 120         
+            }
+                                                       
+            
+             document.getElementById("i1").innerHTML=book1.BookID;
+             document.getElementById("i2").innerHTML=book1.BookTitle;
+             document.getElementById("i3").innerHTML=book1.BookPrice;     
+                 
+            var book2=        
+            {
+              "BookID": 202,
+              "BookTitle": "DC",
+              "BookPrice": 150         
+             }
+             document.getElementById("a1").innerHTML=book2.BookID;
+             document.getElementById("a2").innerHTML=book2.BookTitle;
+             document.getElementById("a3").innerHTML=book2.BookPrice;     
+           
+             var book3=    
+            {
+              "BookID": 203,
+              "BookTitle": "Marvel",
+              "BookPrice": 220        
+             }
+             
+             document.getElementById("z1").innerHTML=book3.BookID;
+             document.getElementById("z2").innerHTML=book3.BookTitle;
+             document.getElementById("z3").innerHTML=book3.BookPrice;     
+        </script>   
+    </body>
+</html>
 
 =====================================================================================================================================================================
 35 Create a Javascript object which has a property as StudentName,StudentSkills (Array) . Convert this object to JSON.
