@@ -925,7 +925,29 @@ submitted and display the username in the servlet.
 
 =====================================================================================================================================================================
 35 Create a Javascript object which has a property as StudentName,StudentSkills (Array) . Convert this object to JSON.
-   
+   -->
+   <html>
+<head>
+</head>
+<body>
+    
+    <h2 id="i1"> </h2>
+    <h2 id="i2"> </h2>
+<script>
+
+    var student = {name : "Nimesh",
+                   skills :["Drawing","Hardworking","Painting"] 
+                  };
+    
+    var jsonstud = JSON.stringify(student);
+    
+    
+ var element = document.getElementById("i1").innerHTML=jsonstud;
+    
+    
+</script>
+</body>
+</html>
 ======================================================================================================================================================================
 36 Create 3 buttons named as Red, Green, Blue. When clicked on any button the page background should be changed according to the button.
 -->
@@ -971,7 +993,54 @@ submitted and display the username in the servlet.
 </html>
 ==================================================================================================================================================================
 37 Create two buttons red and green .Change the font color of the first element of 2 unordered list according to button.
-
+-->
+<html>
+    
+    <head>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+        
+        <script>
+            $(document).ready(function(){
+           
+                  $(".rd").click(function(){
+                    
+                $("ul li:first-child").css("color","red");
+            
+                 }); 
+                
+                  $(".gn").click(function(){
+                
+                $("ul li:first-child").css("color","green");
+            
+                 }); 
+                          
+             });
+             
+        </script>
+        </head>
+    
+    <body>
+    <ul>
+       <li>nimesh</li>
+         <li>hemant</li>
+         <li>saloni</li>
+        
+        </ul>
+        
+        <ul>
+       <li>roma</li>
+         <li>abhi</li>
+         <li>saloni</li>
+        
+        
+        </ul>
+        <button class="rd">Red</button>
+          <button class="gn">Green</button>
+          
+    </body>
+</html>
 ====================================================================================================================================
 38 Display numbers from 1 and 10 sequencially. All Odd numbers should be printed in Red color and Even numbers should be displayed in Green Color.
 39 Create an image on the web page width : 150px, height : 150px. Make a button where write a JQuery code to increse the width and height of image on Clicking the button 
