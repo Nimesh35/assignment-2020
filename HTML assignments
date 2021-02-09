@@ -1387,5 +1387,35 @@ $(".c1").animate({ width:"300px"}).animate({height:"350"}).animate({borderWidth:
 console.log(nam("Nimesh"," Udayan"));
 
 ====================================================================================================================================================================
+45 Create an arrow function in typescript which accepts a number as a parameter and returns the square of a number.
+-->
+// 45 Ass
+// Arrow function
+ 
+var fn1= (x)=>console.log("Square : "+(x*x));
+fn1(5);
+
+============================================================================================================================================================================
+46 Make an anonymous function which accepts a number and calculates the factorial of the number and print it.
+==========================================================================================================================================================================
+47 Make a function which accepts two arguments as first name and last name, If lastname is not passed then default lastname should be displayed with firstname.
+===========================================================================================================================================================================
+48 Make a function with optional parameter. This function accepts only one parameter.
+-->
+//48 Ass
+// optional parameter
+function demo(n1) {
+    console.log("With one Parameter ..."+n1);
+}
+demo(20);
+==========================================================================================================================================================================
+49 Create a class Box. Create 3 properties as length,breadth and height of the box. Create a function which calculates the the volume of the box . A function display()
+   will display the volume along with the property values.
+   =======================================================================================================================================================================
+50 Create an Array of 5 integers and display the average using for..in loop.
+==========================================================================================================================================================================
+51 Create a tuple which has a string , number and boolean as a first ,second and third value. Display the array elements.
+=========================================================================================================================================================================
+
    
  
