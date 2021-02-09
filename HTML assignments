@@ -1339,4 +1339,15 @@ $(".c1").animate({ width:"300px"}).animate({height:"350"}).animate({borderWidth:
 
 
 ======================================================================================================================================================================
+44 Create an Anonymous function in Typescript where function take firstname & lastname as parameters and returns the full name. Display fullname.
+  -->
+  var nam = function(x:string,y:string):string
+{
+    return x+y;
+}
+
+console.log(nam("Nimesh"," Udayan"));
+
+====================================================================================================================================================================
+   
  
