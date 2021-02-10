@@ -1421,6 +1421,22 @@ let tp:[string,number,boolean];
 tp=["Rahul",5,true];
 console.log(tp[0]+" "+tp[1]+" "+tp[2]);
 =========================================================================================================================================================================
+52 Create two textboxes as name and age of a person in a component as a child of Root component.Create a button as submit. Once clicked on this button , some handler
+    should be called which will display the name and age in the alert box.
+    
+    =================================================================================================================================================================
+53 Create two components A and B which are the child of Root. Component A shows the text box with a button. Component B displays an unordered list of item.
 
+====================================================================================================================================================================
+54 Create a Component which has 3 variables as rollno, name and Pass/Fail status(boolean). Assign  default values to these variables and print the values in the view
+    as a table format.
+    
+    =================================================================================================================================================================
+55 Accept two nos in a component from the text box. Make single button "Calculate". When button is pressed then Addition,Subtraction,Multiplication and division
+   should be displayed in the view.
    
- 
+   ====================================================================================================================================================================
+56 Create a textbox and a button in the component. Enter any string . If the string length is more than 5 characters Then a message should be displayed on the view
+    as "String is valid"
+   
+ =====================================================================================================================================================================
