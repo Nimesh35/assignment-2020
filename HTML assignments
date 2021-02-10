@@ -1369,7 +1369,52 @@ $(".c1").animate({ width:"300px"}).animate({height:"350"}).animate({borderWidth:
 42 create div tag with predefined parameters : width :300px, height:300px ,backgroundcolor = red. When move the mouse over the division then height and width should be 
    increased and color should be changed and when you leave the division area the original width , height and color should be displayed.
    -->
-   
+   <html>
+    <head>
+        <style>
+             div
+            {
+                background-color: red;
+                width: 300px;
+                height: 300px;    
+            }
+            
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <script>
+             $(document).ready(function(){
+               
+                 $("div").mouseenter(function(){
+                    $(".c1").animate(
+                        { 
+                            
+                            width:"+=40px",
+                            height:"+=140px",
+                
+           });
+                            
+                     $("div").mouseleave(function(){
+                    $(".c1").animate(
+                        { 
+                            
+                            width:"-=20px",
+                            height:"-=100px",
+                 
+           });
+                         
+                     $("div").hover(function(){
+                    $(this).css("backgroundColor","yellow")                       
+           });                    
+              });
+                 });
+                    });  
+        </script>
+        </head>
+    <body>
+        <hr>
+           <div class="c1"></div><br>      
+    </body>
+</html>
    ======================================================================================================================================================
 43 Create two paragraphs p1 and p2. When clicked on the first paragraph the second paragraph should be given the effect of slidingup and sliding down.
 -->
