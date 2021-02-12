@@ -1557,6 +1557,42 @@ console.log(tp[0]+" "+tp[1]+" "+tp[2]);
     
     =================================================================================================================================================================
 53 Create two components A and B which are the child of Root. Component A shows the text box with a button. Component B displays an unordered list of item.
+-->
+app.components.html
+
+<app-a></app-a>
+
+<app-b></app-b>
+
+------------------------
+a.components.html
+
+<input type="text">
+<button>SUBMIT</button>
+
+------------------------
+b.components.html
+
+<ul>
+
+    <li *ngFor="let item of name">{{item}}</li>
+ 
+</ul>
+------------------------
+b.components.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-b',
+  templateUrl: './b.component.html',
+  styleUrls: ['./b.component.css']
+})
+export class BComponent  {
+
+  name=["Hemant","Roma","Saloni"];
+
+}
 
 ====================================================================================================================================================================
 54 Create a Component which has 3 variables as rollno, name and Pass/Fail status(boolean). Assign  default values to these variables and print the values in the view
