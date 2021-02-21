@@ -14,6 +14,16 @@ alter table Result add Grade varchar2(50);
 =================================================================================
 Q.3 Create a table marks which stores the marks of 5 subjects(physics,chemistry,maths,computer,english) and display the percentage. Store record of 5 students.
 
+create table perc(NAME varchar2(10),PHYSICS number,CHEMISTRY number,MATHS number,COMPUTER number,ENGLISH number,PERCENTAGE as(((PHYSICS+CHEMISTRY+MATHS+COMPUTER+ENGLISH)*100)/500));
+
+insert into perc(NAME,PHYSICS,CHEMISTRY,MATHS,COMPUTER,ENGLISH) values('Nimesh',45,56,67,78,89);
+insert into perc(NAME,PHYSICS,CHEMISTRY,MATHS,COMPUTER,ENGLISH) values('Anvar',46,51,77,88,89);
+insert into perc(NAME,PHYSICS,CHEMISTRY,MATHS,COMPUTER,ENGLISH) values('Umesh',59,63,64,72,65);
+insert into perc(NAME,PHYSICS,CHEMISTRY,MATHS,COMPUTER,ENGLISH) values('Aksa',35,37,47,38,56);
+insert into perc(NAME,PHYSICS,CHEMISTRY,MATHS,COMPUTER,ENGLISH) values('Poonam',75,66,77,88,89);
+
+select *from perc;
+
 =============================================================================================================================
 Q.4 Rename the table Result with StudentScore.
 
@@ -152,6 +162,14 @@ select *from ItemSales;
 select city, sum(Sales) as "Total_Sale" from  ItemSales group by city ;
 ===========================================================================================================================================
 Q.13 Make a table which stores the email id and password where password should not be saved if the length is less than 8 character.
+
+
+create table tab1(Email varchar2(20), PASSWORD varchar2(20) check(length(password)>8));
+
+insert into tab1 values('nimesh3@gmail.com', 'nimesh udayan');
+
+insert into tab1 values('umesh3@gmail.com', 'umesh');
+
 ====================================================================================================================================================
 Q.14 Make a table which stores the name and mobile no of customers. where mobile no can not saved in database if the mobile no is less than 10 digits.
 
@@ -212,6 +230,16 @@ Q.17  Create a table Students ---- Rollno( Primary Key ),
       ====================================================================================================================================
       Q.19 Create a PL/SQL Block which declares the radius of a circle and make a constant pi and assign values as 3.14 to it. Find the area of circle and Print area.
       
+DECLARE 
+        radius real := 3.1;
+        pi constant real := 3.14;
+        v1 real;
+begin 
+
+       v1 := pi*radius*radius;
+       dbms_output.put_line('area is : '|| v1);
+     
+      end;
  ==========================================================================================================================================================
  q.20 PRINT ALL ALPHABETS IN UPPERCASE IN DESCENDING ORDER
  Declare
@@ -252,13 +280,60 @@ END;
  ======================================================================================================================================================================
 Q.22 PRINT ALL EVEN NUMBERS BETWEEN 10 AND 30 USING WHILE LOOP.USE IF CONDITION TO CHECK.
 
+DECLARE 
+        A NUMBER :=10;
+BEGIN
+
+    WHILE A<=30 LOOP  
+    
+    IF mod(A,2)=0 THEN
+    
+    dbms_output.put_line('EVEN NUMBER : '||A);
+    
+    END IF;
+    
+    A := A+1; 
+    
+    END LOOP;
+    
+END;
+
 =========================================================================================================================================================================
 Q.23 PRINT ALPHABETS IN REVERSE ORDER USING FOR LOOP.
 
+
+DECLARE
+       V char;
+BEGIN
+       FOR M IN REVERSE 65..90 
+LOOP
+       V := CHR(M);
+      dbms_output.put_line(V);
+END LOOP;
+
+END;
 ========================================================================================================================================================================
 Q.24 PRINT THE FACTORIAL OF A NUMBER USING FOR LOOP.
+
+
 ===================================================================================================================================================
 Q.25 Create an array of 5 names and print all names in Capital case.
+
+declare
+        s1 varchar2(10) := 'nimesh';
+        s2 varchar2(10) := 'umesh';
+        s3 varchar2(10) := 'aksa';
+        s4 varchar2(10) := 'poonam';
+        s5 varchar2(10) := 'shubham';
+        
+begin
+      dbms_output.put_line(upper(s1));
+      dbms_output.put_line(upper(s2));
+      dbms_output.put_line(upper(s3));
+      dbms_output.put_line(upper(s4));
+      dbms_output.put_line(upper(s5));
+      
+      end;
 ============================================================================================================================================================
 Q.26 Create an array of 5 names and print all names with length in Capital case.
       "abc" ===>  ABC : 3 
