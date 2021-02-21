@@ -1,0 +1,938 @@
+1)  C Programming History
+
+====================================================================================================================================================================
+2) Write a c program to find as follows :
+     a) a=30 ,b =20 find a/b,   where a and b are float
+     b) Program to find the area of circle and rectangle.
+     c) Program to print your name with your age.
+-->
+
+ #include<stdio.h> 
+        int main()  
+      {      
+
+       float a=30;
+       float b =20;
+       float pir=3.14;
+        printf("Area of circle  a = %f and b = %f \n pir^2 = %f \n",a,b,pir*a*b);
+        printf("Area of rectangle  a = %f and b = %f \n Area of rectangle = %f \n",a,b,a*b );
+        printf("Hi Welcome By see you");
+	   
+	    return 0;
+     }
+======================================================================================================================================================================
+3) Write a program to calculate the following :
+      a= 3.5
+      b=2.5
+    1)  a2+b2+2ab   
+    3)  a2 /b2  
+    
+    -->
+    
+    #include<stdio.h> 
+       int  main() 
+    {
+	     float a=3.5;
+	     float b=2.5;
+	  // Q1
+	     printf("a^2 + b^2 + 2ab =%f\n",(a*a)+(b*b)+(2*a*b));
+	 //Q2
+	     printf("a^2 - 2ab + b^2 =%f\n",(a*a)-(2*a*b)+(b*b));
+	 //Q3
+	     printf("a^2/b^2=%f\n",(a*a)/(b*b));
+	  return 0;	
+   }
+    ===============================================================================================================================================================
+    
+4) Write a program to define an integer ,character ,float and double values and print all values along with its size.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int a=5;
+	float f=1.2;
+	char c=7;
+	double d=33;
+	
+	printf("value of integer is = %d\n",a);
+	printf("size of integer is = %d bytes\n",sizeof(a));
+	
+	printf("value of float is = %f\n",f);
+	printf("size of float is = %d bytes\n",sizeof(f));
+	
+	printf("value of char is = %d\n",c);
+	printf("size of char is = %d bytes\n",sizeof(c));
+	
+	printf("value of double is = %lf\n",d);
+	printf("size of double is = %d\n",sizeof(d));
+	
+	getch();
+	
+}
+=============================================================================================================================================================
+
+5) Create a program to take 2 values from user and print addition, multiplication ,subtraction and division.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int a=40,b=20,c;
+	
+	c=a+b;
+	printf("add of a and b=%d\n",c);
+	
+	c=a-b;
+	printf("sub of a and b=%d\n",c);
+	
+	c=a*b;
+	printf("mul of a and b=%d\n",c);
+	
+	c=a/b;
+	printf("div of a and b=%d\n",c);
+	
+	getch();
+	
+}
+===============================================================================================================================================================
+
+6) Take two numbers from user and compare values and print results as false or true.
+
+-->
+
+ #include<stdio.h>
+ 
+  int main()
+  {
+	int a=80;
+	int b=70;
+	
+	if(a<b)
+	printf("1");
+	else
+	if(a>b)
+	printf("0");
+  }
+  =================================================================================================================================================================
+
+7) Create two variables , one is integer and other is double and do the operations like multiplication and subtraction on these variable.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+ int main()
+{
+	int a=7;
+	double b=77;
+	
+	
+	printf("mul of a and b=%d\n");
+	
+	
+	printf("sub of a and b=%d\n");
+	
+}
+
+===============================================================================================================================================================
+8) Write a program to define a function Calculator() which accepts two integer values and print sum,subtraction,division and multiplication.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int cal(int a,int b)
+{
+	
+	printf("add : %d\n",(a+b));
+	printf("sub : %d\n",(a-b));
+	printf("mul : %d\n",(a*b));
+	printf("div : %d\n",(a/b));
+}
+
+int main()
+{
+	int a=20;
+	int b=10;
+	
+	int value = cal(20,10);
+}
+
+=========================================================================================================================================================================
+
+9) Write a program to define a function which takes a number from user and print the number.
+
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+void fun()
+{ int num;
+  printf("Enter you number: ");
+  scanf("%d",&num);
+ printf("Your number %d is luckly number for you ",num);
+}
+int main()
+{
+    fun();
+    return 0;
+}
+
+============================================================================================================================================================================
+10) Write a program to take a number from user and pass this number to the function named as Square() which returns the square of the number and print square value in main.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+
+int square(int a)
+
+{
+	printf("%d^2 = %d",a,(a*a));
+}
+
+int main()
+{
+	int m;
+	printf("enter a number you want to square : ");
+	scanf("%d", &m);
+	square(m);
+	
+}
+
+====================================================================================================================================================================
+11) Write a function which takes a character in small case and returns the same character in capital case.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+    char character , capitalcase;
+    printf("\nenter a small character: \n");
+    scanf("%c" ,&character);
+   
+	 if(character>=97&&character<=122)
+     {
+	     capitalcase = character - 32;
+         printf("\nthe given character in capitalcase = %c\n",capitalcase);
+     }
+ else {
+ 	    printf("enter a smallcase character");
+ }
+ return 0;    
+}
+=================================================================================================================================================================
+12) Write a program to display the result acoording to following using only if:
+     
+       marks < 40        Fail
+       40 <= marks <65   Second Division
+       65 <= marks < 75  First Division
+       75 <= marks       Distinction
+
+-->
+       
+#include<stdio.h>
+
+int main()
+{
+	float  s1, s2, s3, s4, s5, marks;
+	
+	printf("enter marks of 5 subjects\n");
+	scanf("%f %f %f %f %f", &s1, &s2 , &s3 , &s4 , &s5);
+	
+	marks = (s1 + s2 + s3 + s4 + s5);
+	
+	if(marks < 40)
+	{
+		printf("fail\n");
+	}
+	if(40 <=marks <65)
+	{
+	
+	printf("second division\n");
+}
+    if(65 <=marks <75)
+    {
+    	printf("first division\n");
+	}
+	if(75 <=marks)
+	{
+		printf("distinction\n");
+	}
+    return 0;
+}
+=====================================================================================================================================================================      
+13) Write a program to find the largest of two numbers given by user.
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int  a, b;
+	
+	printf("enter 2 integer numbers\n");
+	scanf("%d%d",&a , &b);
+	
+	printf("largest of %d %d is %d\n", a, b, largest(a, b));
+	
+	return 0;
+}
+
+int largest(int x, int y)
+{
+	return (x>y?x:y);
+}
+ ========================================================================================================================================================================      
+14) Write a program using switch....case , create a function which takes two values as parameters 
+
+    +   ======>  Do Addition of two nos.
+    -   ======>  Subtraction
+    /   ======>  Division
+    *   ======>  Multiplication
+    
+    Output :
+             Enter two nos : 2 3
+             Press + to ADD, - to Subtract, / to divide, * to Multiply : +
+             Sum of 2 and 3 is : 5
+             
+  -->
+  #include<stdio.h>
+#include<conio.h>
+
+
+int main()
+{
+	int a, b, choice;
+	
+	printf("enter your choice\n");
+	printf("1. addition\n2. subtraction\n3. multiplication\n4. division\n");
+	scanf("%d",&choice);
+	
+	if( choice >4 )
+	{
+		printf("slect in range!\n");
+	}
+	else
+	{
+		printf("enter 2 integer numbers\n");
+		scanf("%d %d", &a, &b);
+	}
+	
+	switch(choice)
+	{
+		case 1: printf("%d + %d = %d\n", a, b, (a+b));
+		        break;
+		case 2: printf("%d - %d = %d\n", a, b, (a-b));
+		        break;
+		case 3: printf("%d * %d = %d\n", a, b, (a*b));
+		        break;
+	    case 4: printf("%d / %d = %d\n", a, b, (a/b));
+		        break;
+	}
+}
+  ======================================================================================================================================================================
+15) Write a program to do the following using switch...case
+
+    Read percentage of a student inside a function and check if the percentage lies in the following range and print the Grade accodingle :
+    Percentage            Grade
+    80<per<=100           A+
+    60<per<=80            A
+    per<60                Fail
+    
+    Output :
+           Enter your Percentage : 67 
+           Percenge : 67 % , Your Grade is : A 
+ 
+ -->
+ 
+ #include<stdio.h>
+#include<conio.h>
+
+
+     void percentage(int per)
+
+ 
+{
+	switch(per)
+	{
+		case 80 ... 100:
+		printf("80<=per<=100");
+		break;
+		case 21 ... 40:
+		printf("60<=per<=80");
+		break;
+		case 41 ... 60:
+		printf("per<60");
+		break;
+		
+		default:
+			printf("your grade is :A");
+	}
+}
+ int main()
+ {
+ 	int per;
+ 	printf("Enter your percentage :");
+ 	scanf("%d",&per);
+ 	
+ 	percentage(per);
+ 	printf("\n");
+ 	percentage(67);
+ 
+}
+==============================================================================================================================================================
+ 16) Display the following Pattern :
+     *
+     **
+     ***
+     ****
+     *****
+             
+   -->
+   #include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{
+   char print='*';
+   int row, col;
+   int noofrows=5;
+   
+   for(row=1;row<=noofrows;row++)
+   {
+   	for(col=1;col<=row;col++)
+   	{
+	   
+   	printf("%c",print);  
+	   
+       }
+       printf("\n");
+	       
+   }
+}
+===================================================================================================================================================================
+  17) Print the table of the entered number.
+       
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{
+	int n,t,i;
+	printf("enter the number");
+	scanf("%d",&n);
+	t=1;
+	for(i=1;i<=10;i++)
+	{
+		t=i*n;
+		printf("\n %d",t);
+	}
+	getch();
+}  
+========================================================================================================================================================================
+  18) Print the square of number between 1 and 10.
+  
+     Output:
+     
+       Square of 1 is 1
+       Square of 2 is 4
+       Square of 3 is 9
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{
+	int a=1;
+	
+	while(a<=10)
+	           {
+			   
+	
+	            printf("\n square of  %d is %d",a,a*a);
+	            a++;
+	           }
+	           
+	 getch();          
+				                
+}
+======================================================================================================================================================================
+  19) Write a program to print the values between 1 and 30.
+      Skip valus as 1 5 9 10 15
+      
+      Output : 23467811
+     
+   -->
+   
+   #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int i;
+	for(i=0;i<=30;i++)
+	{
+		if(i=1 || i==5 || i==9 || i==10 || i==15)
+		continue;
+		printf("%d\n",i);
+	}
+}
+========================================================================================================================================================================
+  20) Write a program to define marks of 5 subjects and print the average of marks.
+  
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+        float sub,average,s1,s2,s3,s4,s5;
+	printf("enter 5 subjects marks :");
+	scanf("%f %f %f %f %f", &s1,&s2,&s3,&s4,&s5);
+	sub=s1+s2+s3+s4+s5;
+	
+	average=(sub/500)*100;
+	printf("average is %f", average);
+	getch();
+}
+========================================================================================================================================================================
+  21) Print the sum of numbers between 10 and 20.
+  
+  -->
+  
+   #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int sum=10, i;
+	for(i=10;i<20;i++)
+	{
+		sum=sum+i;
+	}
+	
+	printf("%d",sum);
+}
+ ================================================================================================================================================================= 
+  22) Print the sum of only odd numbers between 1 and 10.
+  
+  #include<stdio.h>
+#include<conio.h>
+
+
+int main()
+{
+	int start, end, sum = 0;
+	
+	printf("enter star value\n");
+	scanf("%d", &start);
+	printf("enter end value\n");
+	scanf("%d", &end);
+	
+	printf("\nsum of odd numbers from %d to %d is", start, end);
+	
+	while(start <= end)
+	{
+		if(start%2 !=0)
+		{
+			sum = sum + start;
+		}
+		start++;
+	}
+	printf("%d\n", sum);
+	return 0;
+}
+========================================================================================================================================================================
+  
+  23) Program to check a number is prime or not
+  
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int i,n,r=0;
+	printf("enter any nmuber:");
+	scanf("%d" ,&n);
+	
+	for(i=2;i<=n-1;i++)
+	{
+		if(n%i==0)
+		r=1;
+		break;
+	}
+	if(r==0)
+	printf("prime number");
+	else
+	printf("not prime number");
+	getch();
+}
+
+======================================================================================================================================================================
+  24) Program to find Sum of digits
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	int num, rem, sum =0;
+	
+	printf("enter a int number\n");
+	scanf("%d",&num);
+	
+	while(num)
+	{
+		rem = num % 10;
+		sum = sum + rem;
+		num = num / 10;
+	}
+	printf("the sum of digits is %d",sum);
+	getch();
+}
+=================================================================================================================================
+  25) Program to find Largest of n numbers
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+  int n1,n2;
+     printf("Enter number 1\n");
+     scanf("%u", &n1);
+     printf("Enter number 2\n");
+     scanf("%u", &n2);
+    
+     if(n1<n2)
+     {
+     printf(" You 2th number %d is Largest",n2);
+     }
+     else 
+     {
+     	printf(" You 1th number %d is Largest",n1);
+	 }
+	 
+	 
+ }
+ ===================================================================================================================================================================
+  26) Program to find Factorial of a number
+  
+  -->
+  #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+    int n,i,f;
+    f=i=1;
+    printf("Enter a Number to Find Factorial: ");
+    scanf("%d",&n);
+    while(i<=n)
+    {
+        f*=i;
+        printf("The %d Factorial 0f %d : %d\n",i,n,f);
+        i++;
+    }
+    printf("\n This is end of the code ");
+    return 0;
+}
+  ==================================================================================================================================================================
+  
+  27) Program to find Average of n numbers entered by user
+ 
+ -->
+ 
+ #include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+  int n1,n2,n3,n4,tot,avg;
+     printf("Enter number 1\n");
+     scanf("%u", &n1);
+     printf("Enter number 2\n");
+     scanf("%u", &n2);
+     printf("Enter number 3\n");
+     scanf("%u", &n3);
+     printf("Enter number 4\n");
+     scanf("%u", &n4);
+     tot=n1+n2+n3+n4;
+     avg=tot/4;
+     printf("your Number total will be %u than Average will be %u",tot,avg);     	 
+ }
+ ================================================================================================================================================================
+  28) Program to display fibonnacci series 0 1 1 2 3 5 8....
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+int main()
+{
+	 int i, n, t1 = 0, t2 = 1, next_Term;
+    
+    printf("Enter the number: ");
+    scanf("%d", &n);
+    
+    printf("Fibonacci Series: ");
+
+    for (i = 1; i <= n; ++i) 
+	{
+        printf("%d, ", t1);
+        next_Term = t1 + t2;
+        t1 = t2;
+        t2 = next_Term;
+    }
+
+}
+======================================================================================================================================================================
+  29) Program to swap 2 numbers#include<stdio.h>
+
+-->
+
+#include<stdio.h>
+#include<conio.h>
+
+int main() {
+      int first, second, temp;
+      printf("Enter first number: ");
+      scanf("%d", &first);
+      
+      printf("Enter second number: ");
+      scanf("%d", &second);
+      
+      temp = first;
+
+      first = second;
+
+      second = temp;
+
+      printf("\nAfter swapping, firstNumber = %d\n", first);
+      printf("After swapping, secondNumber = %d", second);
+      return 0;
+}
+ ===================================================================================================================================================================
+  30) Write a program to define a float array of marks of 5 subjects of a studdent and calculate the average of marks and display.
+      Enter marks : 55 66 44 77 88
+      Average :  ?
+      
+      
+      -->
+      
+      #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int marks[max]={20,30,40,50,60};
+	
+	int i;
+	for(i=0;i<max;i++)
+	{
+		printf("marks %d\n",marks[i]);
+	}
+	
+	int sum=0;
+	float avg;
+	for(i=0;i<max;i++)
+	{
+		som=sum+marks[i];
+	}
+	
+	avg=sum/max;
+	
+	printf("average = %f\n",avg);
+}
+=======================================================================================================================================================================
+  31) Create an array of 5 integer values and print the double of every value of an array using pointer concept:
+      Input : num[]={1,2,3,4,5}
+      Output: num[]={2,4,6,8,10}
+      
+      -->
+      
+      #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+    int numbers[]={1,2,3,4,5};
+    
+    int *p;
+    
+    p=numbers;
+    int i;
+    for(i=0;i<5;i++)
+    {
+    	printf("%d\t",(p[i]*2));
+	}
+}
+ =======================================================================================================================================================================     
+  32) Accept first name and lastname from user and print fullname.
+  
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+  int main()
+    {
+	char full_name[25];
+	
+	printf("Enter Your Full name : ");
+	scanf("%c ",&full_name);
+	gets(full_name);
+	puts(full_name);
+	
+    }
+    ================================================================================================================================================================
+  33) Write a program to take a city name from user and print the city name in reverse order using character pointer.
+  
+  -->
+  
+  #include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	char str[10];
+	printf("\nenter string = ");
+	gets(str);
+	
+	reverse(str);
+	return 0;
+}
+
+void reverse(char *p)
+{
+	int i,c=0;
+	for(i=0;*(p+i)!='\0';i++)
+	{
+		c++;
+	}
+	printf("\nstring reverse = ");
+	for(i=c-1;i>=0;i--)
+	{
+		printf("%c",*(p+i));
+	}
+}
+
+===============================================================================================================================================================
+  34) Input a string from user and print only vowels of the string.
+      Input : Pune
+      Output : ue
+   
+   -->
+   
+   #include<stdio.h>
+#include<conio.h>
+
+int main()
+
+{
+	int c = 0;
+	char city[10];
+	
+	printf("enter your city name : ");
+	gets(city);
+	printf("vowels of your city name : ");
+	
+	while (city[c]!= '\0')
+	{
+		if (city[c]=='a' || city[c]=='e' || city[c]=='i' || city[c]=='o' || city[c]=='u')
+		
+		printf("%c",city[c]);
+		c++;
+	}
+	
+}
+==============================================================================================================================================
+  35) Make two pointer variables p1 and p2 which are pointing to x and y variables, x=10, y=20. Create a function which accepts two pointers as a parameter and 
+      perform addition operation on x and y. 
+      
+      -->
+      
+      #include<stdio.h>
+#include<conio.h>
+
+
+void show(int *s, int *t)
+{
+	printf("sum : %d\n",*s+*t);
+}
+int main()
+{
+	int x=10;
+	int y=20;
+	
+	int *p1;
+	p1=&x;
+	
+	int *p2;
+	p2=&y;
+	
+	show(p1,p2);
+}
+ ======================================================================================================================================================================     
+  36) Create a function addition() which accepts addresses of two variables. This function does the addition of two numbers.
+  
+  37) Create a program to find average of array elements where array is passed to the function.
+  
+  38) Create an array of characters dynamically using malloc function.
+  
+  39) Create a program to enter your name and age from keyboard and print name and age. 
+
+  40) write a program to copy a string into another. 
+
+  41) Create a program to input a string from user and find its length. 
+
+  42) Enter username and password and if username is Ajay and password is 1234 then print a message Welcome Ajay. 
+
+  43) Input pricipal amount = 20000, rate of interest = 7.5 and no of years= 2  ,find simple interest using formula as 
+
+       SI = p*r*t / 100 
+  44) Create a structure Student which includes two fields rollno, name . 
+      Take input from user to assign values to structure members and store details of structure data into a file student.txt
+      Maintain record for 5 students
+      
+  45) Create a Program to manage the bank account details for 5 customers in the structure and do the following operations :
+      a) Create a menu where following choices should be made :
+          1 - Show all Records of 5 customers in the Bank ( Bank Accno, CustomerName, TypeOfAccount, Balance)
+          2 - Deposit amount in the available balance of a customer & show updated balance.
+          3 - Withdraw amount from the balance & show updated balance
+          4 - Exit
