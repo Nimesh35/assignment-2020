@@ -1920,8 +1920,203 @@ public class ass45 {
 }
 ================================================================================================
 Q.46 Make an ArrayList of five city names and search a specific city and display city name with position in ArrayList.
+
+-->
+
+package orb.demo;
+
+
+import java.util.ArrayList;
+
+public class ASS46 {
+
+	 public static int sum = 0;
+	    public static int cont = 0;
+
+	    public static boolean search(String item,ArrayList<String> st)
+	    {
+	    	return st.contains(item);
+	    }
+		public static void main(String[] args) {
+	    ArrayList<String> citynm = new ArrayList<String>();
+	    
+	    citynm.add("pune");
+	    citynm.add("mumbai");
+	    citynm.add("kerala");
+	    citynm.add("begnluru");
+	    citynm.add("delhi");
+	 
+	    if(search("pune",citynm))
+	    {
+	    	int index = citynm.indexOf("pune");
+	    	
+	    	System.out.println("NAME OF THE CITY : "+"pune"+" IS AT THE POSITION : "+index);
+	    }
+	    
+		}
+}
+=====================================================================================================================================================
 Q.47 Make ArrayList of 5 strings and display every string along with the length.
+
+-->
+
+package orb.demo;
+
+import java.util.ArrayList;
+
+public class ASS47 {
+
+	public static void main(String[] args) {
+		 ArrayList<String> st = new ArrayList<String>();
+		    
+		    st.add("nimesh");
+		    st.add("nimesh12");
+		    st.add("nimesh123");
+		    st.add("nimesh1234");
+		    st.add("nimesh12345");
+
+		    for(String str : st)
+		    {
+		    	System.out.println(str+" - "+str.length());
+		    }
+		  }
+
+	}
+
+}
+===================================================================================================================================================================
 Q.48 Create a List A which contains 5 strings .Create a List B where length of all strings from List A should be stored.Create 
+
+-->
+
+package orb.demo;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ASS48 {
+	
+	 public static void setdetails(ArrayList<Integer> b,int l)
+	    {
+	    	b.add(l);
+	    }
+	    
+	    public static void display(ArrayList<Integer> b)
+	    {
+	    	Iterator<Integer> it = b.iterator();
+	    	
+	    	while(it.hasNext())
+	    	{
+	    		System.out.println(it.next());
+	    	}
+	    }
+		public static void main(String[] args) {
+	    ArrayList<String> A = new ArrayList<String>();
+	    ArrayList<Integer> B = new ArrayList<Integer>();
+
+	    A.add("VISHAL");
+	    A.add("SOHAM");
+	    A.add("OM");
+	    A.add("ARJUN");
+
+	    for(String st : A)
+	    {
+	    	System.out.println(st);
+	    	setdetails(B,st.length());
+	    }
+	    System.out.println();
+	    
+	    display(B);
+	  }
+
+}
+==============================================================================================================================================================
 Q.49 Create an Enum named as DAYS which maintains constant as Days name. Display the message using switch...case based on the enum object value.
+
+-->
+
+package orb.demo;
+
+enum DAYS {
+	MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY;
+}
+
+public class ASS49 {
+
+	public static void main(String[] args) {
+	    
+		DAYS d = DAYS.MONDAY; 
+		switch(d)
+		{
+		case TUESDAY:
+			System.out.println(" ITS TUESDAY");
+			break;
+		case WEDNESDAY:
+			System.out.println(" ITS WEDNESDAY");
+			break;
+		case THURSDAY:
+			System.out.println(" ITS THRUSDAY");
+			break;
+		case FRIDAY:
+			System.out.println(" ITS FRIDAY");
+			break;
+		case SATURDAY:
+			System.out.println(" ITS SATURDAY");
+			break;
+		case SUNDAY:
+		    System.out.println(" ITS SUNDAY");
+		    break;
+		case MONDAY:
+			System.out.println(" ITS MONDAY");
+			break;
+		default:
+			System.out.println(" ITS INVALID");
+			break;
+		}
+		
+		}
+}
+=================================================================================================================================================
 Q.50 Create a linked list of 3 records about books and element type is Object of class Book. Book details are : bookid,booktitle,bookauthor,bookprice. Print all book
      details in reverse order.
+-->
+
+package orb.demo;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+class book {
+	public int bookid,bookprice;
+	public String bookauthor,booktitle;
+	public book(int bookid,int bookprice,String bookauthor,String booktitle)
+	{
+		this.bookid = bookid;
+		this.bookprice = bookprice;
+		this.bookauthor = bookauthor;
+		this.booktitle = booktitle;
+	}
+	
+	public String toString()
+	{
+		return "BOOK_ID : "+bookid+" BOOK_PRICE : "+bookprice+" BOOK_AUTHOR : "+bookauthor+" BOOK_TITLE : "+booktitle;
+	}
+}
+public class ASS50 {
+    
+	public static void main(String[] args) {
+    LinkedList<book> boo = new LinkedList<book>();
+    
+    boo.add(new book(101,995,"R.L.STINE","GOOSEBUMPS"));
+    boo.add(new book(102,200,"GREEN ","FAULT IN OUR STARS"));
+    boo.add(new book(103,1995,"KUTCHESKY","RICH DAD,POOR DAD"));
+    
+    for(book b : boo)
+    {
+    	System.out.println(b);
+    }
+  }
+
+}
+===================================================================================================================================================================
+
