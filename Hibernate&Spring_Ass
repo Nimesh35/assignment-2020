@@ -141,10 +141,495 @@ student.hbm.xml
    =======================================================================================================================================================================
 2. Create a class Student and make a mapping file to map this class. In Student class, Take studentRollno,name,age from user. Sno will be id by default. 
    Table should be created by hibernate and the records in the table should be updated.
+   
+   *hibernate.cfg.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <mapping resource="Student.hbm.xml" />
+        <mapping resource="Student2.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+------------------
+*student2.java
+
+package pack;
+
+public class Student2 {
+	public int sno;
+	public int studentRollno,age;
+	public String name;
+	public int getSno() {
+		return sno;
+	}
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+	public int getStudentRollno() {
+		return studentRollno;
+	}
+	public void setStudentRollno(int studentRollno) {
+		this.studentRollno = studentRollno;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}
+------------------
+*student2.hbm.xml
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pack.Student2" table="STUDENT2">
+        <id name="sno" type="int">
+            <column name="SNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="studentRollno" type="int">
+            <column name="STUDENTROLLNO" />
+        </property>
+        <property name="age" type="int">
+            <column name="AGE" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+    </class>
+</hibernate-mapping>
+------------------------
+
+*st2.java
+
+package pack;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class St2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); 
+		System.out.println("ENTER THE ROLLNO : ");
+		int ro = sc.nextInt();
+		
+		System.out.println("ENTER THE NAME : ");
+		String nm = sc.nextLine();
+		
+		System.out.println("ENTER THE AGE : ");
+		int ag = sc.nextInt();
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		
+		Session s = sf.openSession();
+		
+		s.beginTransaction();
+		
+		Student2 st2 = new Student2();
+		
+		st2.setStudentRollno(ro);
+		
+		st2.setName(nm);
+		
+		st2.setAge(ag);
+		
+		s.save(st2);
+		
+		s.getTransaction().commit();
+		
+		s.close();
+		
+		sf.close();
+		
+		sc.close();
+		
+		System.out.println("RECORD INSERTED SUCCESSFULLY......");
+		}
+	}
+   
+   =====================================================================================================================================================================
 3. Make a class Account which has fields like accno,name & acctype. Acoount class will be Entity class. Take data from user and the table will be created automatically.
+-->
+
+*hibernate.cfg.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <mapping resource="Student.hbm.xml" />
+        <mapping resource="Student2.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+
+
+*Amount.java
+
+package pack;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "amount")
+public class Amount {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+    public int sno;
+    public int accno;
+    
+    public String name,acctype;
+    
+    public int getSno() {
+		return sno;
+	}
+
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+
+	public int getAccno() {
+		return accno;
+	}
+
+	public void setAccno(int accno) {
+		this.accno = accno;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAcctype() {
+		return acctype;
+	}
+
+	public void setAcctype(String acctype) {
+		this.acctype = acctype;
+	}
+
+	
+}
+*A1.java
+
+package pack;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class A1 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in); 
+		System.out.println("ENTER THE ACCOUNT NUMBER : ");
+		int ro = sc.nextInt();
+				
+		sc.nextLine();
+		
+		System.out.println("ENTER THE ACCOUNT NAME : ");
+		String nm = sc.nextLine();
+						
+		System.out.println("ENTER THE ACCOUNT TYPE : ");
+		String ag = sc.nextLine();
+		
+		SessionFactory sf = new Configuration().configure().addAnnotatedClass(Amount.class).buildSessionFactory();
+		
+		Session s = sf.openSession();
+		
+		s.beginTransaction();
+		
+		Amount am = new Amount();
+		
+		am.setAccno(ro);
+		
+		am.setName(nm);
+		
+		am.setAcctype(ag);
+		
+		s.save(am);
+		
+		s.getTransaction().commit();
+		
+		s.close();
+		
+		sf.close();
+		
+		sc.close();
+		
+	    System.out.println("RECORD SUCCESSFULLY INSERTED");
+	}
+
+}
+=======================================================================================================================================================================
 4. Create a hibernate project in Maven which is a Dynamic web Project and Create a mapping file for the POJO class.Two JSP pages(A,B) will be created.First Jsp will 
    accepts username,Password and stores the deails in the logintable. In the same project Create another servlet which updates the password in the table. Create a 
    seperate JSP to update the password.Once the record is saved in table then second JSP page will display the message as "Record submitted".
+   
+  *hibernate.cfg.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property> 
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="show_sql">true</property>
+        <mapping resource="prod1.hbm.xml"/>
+         <mapping resource="POJO.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+
+*Pojo.java
+
+package ASSIGNMENTS;
+
+public class POJO {
+
+	public int sno;
+	public int getSno() {
+		return sno;
+	}
+
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+
+	public String usnm,pswd;
+
+	public String getUsnm() {
+		return usnm;
+	}
+
+	public void setUsnm(String usnm) {
+		this.usnm = usnm;
+	}
+
+	public String getPswd() {
+		return pswd;
+	}
+
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
+	}
+	
+	
+}
+
+*Pojo.hm.xml
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ASSIGNMENTS.POJO" table="POJO">
+        <id name="sno" type="int">
+            <column name="SNO" />
+            <generator class="increment" />
+        </id>
+        <property name="usnm" type="java.lang.String">
+            <column name="USNM" />
+        </property>
+        <property name="pswd" type="java.lang.String">
+            <column name="PSWD" />
+        </property>
+    </class>
+</hibernate-mapping>
+
+*a.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="serv1">
+USERNAME <input type="text" name="us">
+PASSWORD <input type="password" name="pass">
+<input type="submit" value="ENTER">
+</form>
+</body>
+</html>
+
+*Servelet 1
+package ASSIGNMENTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class serv1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	PrintWriter out = response.getWriter();
+	
+	String us = request.getParameter("us");
+	
+	String pa = request.getParameter("pass");
+	SessionFactory sf = new Configuration().configure().buildSessionFactory();
+	
+	Session s = sf.openSession();
+	
+	s.beginTransaction();
+	
+	POJO p = new POJO();
+	p.setSno(101);
+
+	p.setUsnm(us);
+	
+	p.setPswd(pa);
+	
+	s.save(p);
+	
+	s.getTransaction().commit();
+	
+	s.close();
+	
+	sf.close();
+	
+	out.print("TABLE CREATED AND RECORD SUCCESSFULLY INSERTED...................");
+	
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+*b.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="serv2">
+ID <input type="text" name="id">
+PASSWORD<input type="password" name="pass">
+<input type="submit" value="SUBMIT">
+</form>
+</body>
+</html>
+
+*Servelet 2
+package ASSIGNMENTS;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class serv2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		int sno = Integer.parseInt(request.getParameter("id"));		
+		
+		String pa = request.getParameter("pass");
+		
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		
+		Session s = sf.openSession();
+		
+		s.beginTransaction();
+		
+		POJO p = s.get(POJO.class, sno);
+
+		p.setPswd(pa);
+		
+		s.update(p);
+		
+		s.getTransaction().commit();
+		
+		s.close();
+		
+		sf.close();
+		
+		out.print("PASSWORD UPDATED");
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+=========================================================================================================================================================================
 5. Make a simple project in Maven using Hibernate to take the details about a Employee like EmpID,Name,Salary. Delete and Update the specific record. 
 6. Create a Maven project in hibernate to perform CRUD Operations. Create a web Application.
 7. Create 3 Bean classes named as SBI, IDBI, ICICI. In All classes the dependency is injected in the constructor.Dependency class is InterestRate which has one method
