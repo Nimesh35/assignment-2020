@@ -1,5 +1,144 @@
 1. Create a class Student and make a mapping file to map this class. In Student class, Take studentRollno,name,age from user. Sno will be id by default. 
    Create a table maually.
+   -->
+   
+   student.java
+
+package Package1;
+
+public class student {
+
+	private int rollno;
+	private String name;
+	private int age; 
+	private int id;
+	
+	public int getRollno() {
+		return rollno;
+	}
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+}
+-------------------
+
+student_test.java
+
+package Package1;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class student_test {
+
+	public static void main(String[] args) {
+		
+     SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		
+	 Session s=sf.openSession();
+		
+	 Transaction t=s.beginTransaction();
+		
+	 student s1=new student();
+	 
+	 s1.setName("VISHAL");
+	 
+	 s1.setAge(19);
+	 
+	 s1.setRollno(21);
+	 
+     student s2=new student();
+	 
+	 s2.setName("SOHAM");
+	 
+	 s2.setAge(12);
+	 
+	 s2.setRollno(22);
+	 
+	 s.save(s1);
+	 
+	 s.save(s2);
+	 
+	 t.commit();
+	 
+	 s.close();
+	 
+	 sf.close();
+	 
+	System.out.println("DONE");
+	
+	}
+		
+}
+-------------------------------------------------------
+
+hibernate.cfg.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">jyotimunde</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <mapping resource="student.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+student.hbm.xml
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 Feb, 2021 10:50:01 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Package1.student" table="studentdetails">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="rollno" type="int">
+            <column name="rollno" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" />
+        </property>
+    </class>
+</hibernate-mapping>
+   
+   
+   
+   =======================================================================================================================================================================
 2. Create a class Student and make a mapping file to map this class. In Student class, Take studentRollno,name,age from user. Sno will be id by default. 
    Table should be created by hibernate and the records in the table should be updated.
 3. Make a class Account which has fields like accno,name & acctype. Acoount class will be Entity class. Take data from user and the table will be created automatically.
@@ -24,5 +163,287 @@
 14. Make a Spring MVC Project in Maven, Create a registration page where customer Id, firstname, lastname and age is to be taken in the registration form and save data 
     in the database .After submitting data , display the message "Registration Successful".
 15  Make a program to apply constructor injection using XML and Annotation.
+-->
 
+*Fortuneservice.java
+
+package ass15;
+
+public interface Fortuneservice {
+
+ public String getFortune();
+
+}
+----------------------
+*HappyFortuneService.java
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HappyFortuneService implements Fortuneservice{
+
+ @Override
+public String getFortune() {
+// TODO Auto-generated method stub
+return "its Your lucky day";
+}
+
+}
+---------------------------
+*Pen.java
+
+package ass15;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+
+public class Pen implements Stationery {
+
+ public Fortuneservice fs;
+// Constructor injection using @Autowired
+
+@Autowired
+public Pen(Fortuneservice fs) {
+super();
+this.fs = fs;
+}
+
+// Setter injection using @Autowired
+/*
+@Autowired
+
+public void setFs(FortuneService fs) {
+this.fs = fs;
+}
+*/
+@Override
+public String getDetails() {
+// TODO Auto-generated method stub
+return "Message from Pen";
+}
+
+
+ @Override
+public String getyourFortune() {
+// TODO Auto-generated method stub
+return fs.getFortune();
+}
+
+
+}
+---------------------------
+*Scale.java
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Scale implements Stationery{
+
+ @Override
+public String getDetails() {
+// TODO Auto-generated method stub
+return "Message from Scale";
+}
+
+ @Override
+public String getyourFortune() {
+// TODO Auto-generated method stub
+return null;
+}
+
+}
+------------
+*Stationery.java
+
+package ass15;
+
+public interface Stationery {
+	
+	public String getDetails();
+	public String getyourFortune();
+
+}
+------------
+*TestApp.java
+
+package ass15;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestApp {
+
+ public static void main(String[] args) {
+
+ ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Ass15applicationContext2.xml");
+
+Stationery s=context.getBean("pen",Stationery.class);
+
+ System.out.println(s.getDetails());
+System.out.println(s.getyourFortune());
+context.close();
+}
+
+}
+
+=============================================================================================================================================================
 16  Make a program to apply Setter injection using XML and Annotation.
+
+-->
+
+*Fortuneservice.java
+
+package ass15;
+
+public interface Fortuneservice {
+
+ public String getFortune();
+
+}
+----------------------
+*HappyFortuneService.java
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HappyFortuneService implements Fortuneservice{
+
+ @Override
+public String getFortune() {
+// TODO Auto-generated method stub
+return "its Your lucky day";
+}
+
+}
+---------------------------
+*Pen.java
+
+package ass15;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+
+public class Pen implements Stationery {
+
+ public Fortuneservice fs;
+// Constructor injection using @Autowired
+/*
+@Autowired
+public Pen(Fortuneservice fs) {
+super();
+this.fs = fs;
+}
+*/
+// Setter injection using @Autowired
+
+@Autowired
+
+public void setFs(FortuneService fs) {
+this.fs = fs;
+}
+
+@Override
+public String getDetails() {
+// TODO Auto-generated method stub
+return "Message from Pen";
+}
+
+
+ @Override
+public String getyourFortune() {
+// TODO Auto-generated method stub
+return fs.getFortune();
+}
+
+
+}
+---------------------------
+*Scale.java
+
+package ass15;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Scale implements Stationery{
+
+ @Override
+public String getDetails() {
+// TODO Auto-generated method stub
+return "Message from Scale";
+}
+
+ @Override
+public String getyourFortune() {
+// TODO Auto-generated method stub
+return null;
+}
+
+}
+------------
+*Stationery.java
+
+package ass15;
+
+public interface Stationery {
+	
+	public String getDetails();
+	public String getyourFortune();
+
+}
+------------
+*TestApp.java
+
+package ass15;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestApp {
+
+ public static void main(String[] args) {
+
+ ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("Ass15applicationContext2.xml");
+
+Stationery s=context.getBean("pen",Stationery.class);
+
+ System.out.println(s.getDetails());
+System.out.println(s.getyourFortune());
+context.close();
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
