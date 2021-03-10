@@ -251,6 +251,65 @@ Q.17  Create a table Students ---- Rollno( Primary Key ),
   b) Remove Primary Key constraint from college
   c) Input the details of 5 students for a differnt college
   d)  Group all the students based on collegeName
+-->
+
+
+create table students(rollno number(3),name varchar2(20) NOT NULL,enrollno varchar2(20),
+primary key(enrollno));
+
+insert all
+into students(rollno,name,enrollno) values(201,'Nimesh','DUHEU344')
+into students(rollno,name,enrollno) values(202,'Salma','DUHEU352')
+into students(rollno,name,enrollno) values(203,'Shubham','DUHEU334')
+into students(rollno,name,enrollno) values(204,'Joy','DUHEU349')
+into students(rollno,name,enrollno) values(205,'Aksa','DUHEU323')
+
+select *from dual;
+
+select * from students;
+-------
+create table college(college_id varchar2(20),college_name varchar(30),admission_date date,contact_no number(10),
+enrollment_id varchar2(30) CONSTRAINT con_enr REFERENCES students(enrollno),primary key(college_id));
+
+insert all
+into college(college_id,college_name,admission_date,contact_no,enrollment_id) values(1101,'JAIHIND',date '09-06-20',9887675765,'DUHEU334')
+into college(college_id,college_name,admission_date,contact_no,enrollment_id) values(1203,'MMCC',date '01-07-20',9187612744,'DUHEU352')
+into college(college_id,college_name,admission_date,contact_no,enrollment_id) values(1443,'FC',date '21-06-20',9287675765,'DUHEU323')
+into college(college_id,college_name,admission_date,contact_no,enrollment_id) values(1110,'MODERN','05-06-20',8187122765,'DUHEU349')
+into college(college_id,college_name,admission_date,contact_no,enrollment_id) values(1121,'WADIA',date '28-06-20',6287645765,'DUHEU344')
+
+select * from dual;
+
+select * from college;
+---
+
+select a.rollno,a.name,a.enrollno,b.college_id,b.college_name,b.admission_date,b.contact_no,b.enrollment_id
+from students a,college b where a.enrollno = b.enrollment_id;
+
+------
+alter table college drop primary key;
+
+----
+create table college2(college_id varchar2(20),college_name varchar(30),admission_date date,contact_no number(10),
+enrollment_id varchar2(30) CONSTRAINT cn_enr REFERENCES students(enrollno),primary key(college_id));
+
+
+insert all
+into college2(college_id,college_name,admission_date,contact_no,enrollment_id) values(1101,'JAIHIND',date '09-06-20',9287675765,'DUHEU323')
+into college2(college_id,college_name,admission_date,contact_no,enrollment_id) values(1203,'MMCC',date '01-07-20',9187612744,'DUHEU352')
+into college2(college_id,college_name,admission_date,contact_no,enrollment_id) values(1443,'FC',date '21-06-20',9887675765,'DUHEU334')
+into college2(college_id,college_name,admission_date,contact_no,enrollment_id) values(1110,'MODERN','05-06-20',6287645765,'DUHEU344')
+into college2(college_id,college_name,admission_date,contact_no,enrollment_id) values(1121,'WADIA',date '28-06-20',8187122765,'DUHEU349')
+
+select * from dual;
+select * from college2;
+
+select c.rollno,c.name,c.enrollno,d.college_id,d.college_name,d.admission_date,d.contact_no,
+d.enrollment_id from students1 c,college2 d where c.enrollno = d.enrollment_id;
+-----
+select college_name,count(college_name) as TOTAL_STUDENTS from college2 group by college_name;
+
+
   
   ==================================================================================================================================
   Q.18 Create a table which stores PersonName(Not Null),Mobile(Unique),Address.  Create two views v1 and v2 on the table. v1 is read only but v2 is updatable.
