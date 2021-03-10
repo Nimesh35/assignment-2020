@@ -206,7 +206,36 @@ Q.16 Create a table where records of an employee is maintained .
      Fields are EID (primary key), Ename (NOT NULL), officeno (Unique), DateOfJoining(NOT NULL),CompanyName(Default),Salary(Check is : salary > 0)
      Create PersonnelDetails : ID( Foreign Key ) , Addres (NOT NULL), contactno(NOT NULL , UNIQUE) 
      Join Both tables and Display output
+-->
 
+create table employee(eid number,ename varchar2(20) NOT NULL,officeno number(15),Dateofjoining date NOT NULL,
+companyname varchar2(20)default 'DIGIT',salary number(5) check(salary > 0),primary key(eid),unique(officeno));
+
+insert all
+into employee(eid,ename,officeno,Dateofjoining,companyname,salary) values(201,'Nimesh',41010293,date '2020-1-01','GO-DIGIT',25000)
+into employee(eid,ename,officeno,Dateofjoining,companyname,salary) values(202,'Umesh',32928924,date '2020-09-30','GO-DADDY',35000)
+into employee(eid,ename,officeno,Dateofjoining,companyname,salary) values(203,'Aksa',15060294,date '2020-07-16','TATA-MOTORS',55000)
+into employee(eid,ename,officeno,Dateofjoining,companyname,salary) values(204,'Shubham',61710235,date '2020-10-01','TATA',20000)
+
+select * from dual;
+select * from employee;
+----
+
+create table personaldetails(address varchar2(20) NOT NULL,contactno number(10) NOT NULL ,
+id number(4) CONSTRAINT coid REFERENCES employee(eid),CONSTRAINT ck_con unique(contactno)); 
+
+
+insert all
+into personaldetails(address,contactno,id) values('Sangvi',9888823456,201)
+into personaldetails(address,contactno,id) values('MG-Road',9842382752,202)
+into personaldetails(address,contactno,id) values('Yerawada',9668823416,203)
+into personaldetails(address,contactno,id) values('Ram-Nagar',8188823345,204)
+
+select * from dual;
+select * from personaldetails;
+
+select x.eid,x.ename,x.officeno,x.Dateofjoining,x.companyname,x.salary,y.address,y.contactno
+from employee x,personaldetails y where x.eid = y.id;
 ====================================================================================================================================
 Q.17  Create a table Students ---- Rollno( Primary Key ), 
                                    Name (NOT NULL)
