@@ -8,7 +8,7 @@ Q.2 Create a Spring core Project using Maven where create 5 classes and 1 interf
        result and StringLength class returns the length of the defined string. Create a ConstructorInjection class which injects
        the dependency in the constructor. Create a SpringContainer class which is executed first to get the desired result. 
        Calculate Addition of two numbers and String length of the defined string based on the dependency.
-   
+   ========================================================================================================================================================================
 Q.3 Create a Spring core Project using Maven where create a Bean class named as Employee which has two member 
         variables firstName and lastName and getter, setter methods. Create applicationContext.xml file which sets the
         values for firstName and lastName. Create a SpringContainer class which concatenates the firstName and lastName 
@@ -132,6 +132,29 @@ Q.14 Create a class which takes a string as a parameter in Parameterised constru
        b) concatenate a string Hello to the string taken in the constructor
        c) Compare the taken string with any string.
        d) Find substring "llo" from "Hello"
+
+-->
+
+package add14;
+
+public class String {
+
+	public static void main(java.lang.String[] args) {
+		StringBuffer ob=new StringBuffer("welcome to my string buffer");
+		StringBuffer ob1=new StringBuffer("Hello");
+
+		System.out.println(ob);
+		
+		System.out.println(ob.reverse());
+
+		System.out.println(ob.append("Hello"));
+
+		System.out.println(ob1.substring(2));
+
+	}
+
+}
+==========================================================================================================================================================================
 
 Q.15  Create a Class Addition where a parameterised constructor takes a double and an integer value. Create a child class of Addition which has a constructor which passes two numbers to the constructor of the Addition class . Define a method showSum() in the child class which displays the addition of two numbers.
 -->
