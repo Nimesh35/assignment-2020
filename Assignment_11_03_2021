@@ -2,7 +2,7 @@ Q.1 Create a Spring core Project using Maven where Calculate the Factorial of an
        Create SpringContainer, SetterInjection, AppConfiguration and FactorialService Classes where FactorialService class 
        is returning the factorial of the entered number. Use Setter Dependency Injection concept. Use Annotation Based 
       configuration.   
-
+===================================================================================================================================================================
 Q.2 Create a Spring core Project using Maven where create 5 classes and 1 interface. Make an interface named as operation
        Create AppConfiguaration Class, Create Addition and StringLength classes. Addition Class returns the addition as a 
        result and StringLength class returns the length of the defined string. Create a ConstructorInjection class which injects
@@ -104,29 +104,156 @@ Q.4  Create a Dynamic web Project using Maven and Create the following forms:
             rollno ,name and city in session object.
         c) Make Details.jsp which gets the values for rollno, name and city from session object and prints All details.
      Note : If roll number is 101, 102 or 103 then Details.jsp Prints all Details otherwise prints a message "Not a valid User"
-
+==============================================================================================================================================================================
 Q.5 Create a Dynamic Web Project using JSTL in which make two JSP Pages .Form1.jsp and Display.jsp
        Form1.jsp has one text box and a submit button. When clicked on submit button, Display.jsp page is called .Display.jsp Page 
        displays the result according to entered number. For example ,If number entered is 5 then result will be 5 6 7 8 9.....
-
+==============================================================================================================================================================================
 Q.6 Write a Program to create an ArrayList of 3 numbers and find the minimum of the these numbers and display it.
-
+==============================================================================================================================================================================
 Q.7 Create a class Result which implements Runnable interface.This class has a method getMarks() which takes 5 marks as arguments and returns the percentage value.The method getMarks() should be called inside run() method.Create two Thread objects of the Result class .Set the names of these objects as "student1" and "student2". Display percentage of two students in run() method.
-
+==============================================================================================================================================================================
 Q.8 Create a custom Exception class named as EmailException. Throw an exception of EmailException if email length is zero.
-
+==================================================================================================================================================================================
 Q.9 Make an interface Area. Make two classes Radius and Circle.In Area , Take a method show(), In Class Radius ,define a method getRadius() which takes radius and returns the area of circle as a value. Class Circle inherits Radius and implements the Area. Display the area of circle returned by getRadius().
-
+==============================================================================================================================================================================
 Q.10 Create a TreeSet object in which add 3 color names. Display all color names in Descending order and Remove any one color from the set.
-
+==============================================================================================================================================================================
 Q.11 Write a program to create an interface Sports in which methods are getGameName(), getNoOfPlayers(),showPlayerDetails() . One interface
 member variable is country1="India", country2="SA". Make classes Cricket, football which implements this interface. In showPlayerDetails() , display details of player like CountryName,GameName PlayerName,TotalPlayers.
- 
+-->
+* Sports.java
+
+package add11;
+
+public interface Sports {
+
+	public String country1="INDIA";
+	public String country2="USA";
+	
+	public String getGameName();
+	
+	public int getNoOfPlayers();
+	
+	public void showPlayerDetails();
+}
+--------
+* Cricket.java
+package add11;
+
+public class Cricket implements Sports {
+
+	@Override
+	public String getGameName() {
+		// TODO Auto-generated method stub
+		return "Cricket";
+	}
+
+	@Override
+	public int getNoOfPlayers() {
+		// TODO Auto-generated method stub
+		return 9;
+	}
+	
+	
+	public String getPlayerName()
+	{
+		return "MS.DHONI";
+	}
+
+	@Override
+	public void showPlayerDetails() {
+		
+		System.out.println("Country Nmae : "+country1);
+		System.out.println("Game Name : "+getGameName());
+		System.out.println("Players Name: "+getPlayerName());
+		System.out.println("No Of Players : "+getNoOfPlayers());
+
+	}
+
+}	
+----------------
+* Football.java
+
+package add11;
+
+public class Football implements Sports {
+
+	@Override
+	public String getGameName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNoOfPlayers() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public String getPlayerName()
+	{
+		return "LIONE Messi";
+	}
+
+	@Override
+	public void showPlayerDetails() {
+		// TODO Auto-generated method stub
+
+		System.out.println("Country Nmae : "+country1);
+		System.out.println("Game Name : "+getGameName());
+		System.out.println("Players Name: "+getPlayerName());
+		System.out.println("No Of Players : "+getNoOfPlayers());
+	
+	}
+
+}
+------------------
+* TestMain.java
+
+package add11;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		
+
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		Sports s=context.getBean("sport",Sports.class);
+		
+	s.showPlayerDetails();
+	
+	context.close();
+
+	}
+
+}
+-----------
+* applicationContext.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+   
+    <bean id="sport" class="add11.Cricket">
+   
+    </bean>
+  
+</beans>
+==========================================================================================================================================================================
 Q.12 Make a Class Student ,In this Class create one Inner Class as Percentage.In Percentage class a method which returns the percentage of a student.Marks of 5 subjects should be taken in the method of student.Make a method showDetails in the Student Class which shows the Percentage of the student.
 
-
+==============================================================================================================================================================================
 Q.13 Create a class EmpDetails . Member variables of this class are EmpID, EmpName, EmpAge,EmpSalary. Create a method getDetails() which takes the details for an employee. Throw an exception if the EmpName is null ,If age is less then 18 using multi catch block.
-
+==============================================================================================================================================================================
 Q.14 Create a class which takes a string as a parameter in Parameterised constructor and perform the following operations using stringBuffer class: 
        a) Print the reverse of the string
        b) concatenate a string Hello to the string taken in the constructor
