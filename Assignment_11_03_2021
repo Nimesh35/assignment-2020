@@ -116,6 +116,70 @@ Q.7 Create a class Result which implements Runnable interface.This class has a m
 Q.8 Create a custom Exception class named as EmailException. Throw an exception of EmailException if email length is zero.
 ==================================================================================================================================================================================
 Q.9 Make an interface Area. Make two classes Radius and Circle.In Area , Take a method show(), In Class Radius ,define a method getRadius() which takes radius and returns the area of circle as a value. Class Circle inherits Radius and implements the Area. Display the area of circle returned by getRadius().
+
+-->
+
+*Area.java
+
+package add9;
+
+public interface Area {
+
+	public float show(float f);
+}
+-----
+*Circle.java
+
+package add9;
+
+public class Circle extends Radius implements Area {
+
+	
+   Radius r = new Radius();
+	
+	public float show(float rad) {
+		return r.getradius(rad);
+	}
+	
+}
+--------
+*Radius.java
+
+package add9;
+
+public class Radius {
+
+	public float getradius(float rad)
+	{
+		float pi = (float) 3.14;
+		float area =  pi * rad * rad;
+		return area;
+	}
+}
+
+--------
+*TestMain.java
+
+package add9;
+
+import java.util.Scanner;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		   Circle c = new Circle();
+		    Scanner sc = new Scanner(System.in);
+		    
+		    System.out.println("Enter the Radius : ");
+		    float radius = sc.nextFloat();
+		    
+		    System.out.println("Area of the Circle is : "+c.show(radius));
+		    sc.close();
+
+	}
+
+}
+
 ==============================================================================================================================================================================
 Q.10 Create a TreeSet object in which add 3 color names. Display all color names in Descending order and Remove any one color from the set.
 
