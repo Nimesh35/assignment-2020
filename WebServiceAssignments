@@ -1,0 +1,69 @@
+1. Create a Web service where a method is returning the sum of digits of a number. Print Sum on the web Page .
+=======================================================================================================================================================================
+2. Create a Web Service where inside a method accept fisrtname and lastname from user and display the fullname on the web page.
+-->
+
+package org.ass2;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("ass2")
+public class Ass2 {
+@GET
+@Produces(MediaType.TEXT_PLAIN)
+
+
+public String getIt(){
+	
+	String fn="Nimesh";
+	String ln="Udayan";
+	return fn+" "+ln;
+
+}
+
+}
+===========================================================================================================================================================================
+3. Create a Class as Customers. Cid, cname and qty are the members of this class. Create a resource which saves records of 5 products. Make a method which displays
+   all records in the tabular form. Make a method which displays all records in XML form. Make a method which displays the record on the basis of quantity.
+4. Create a form which takes user name and age in the textbox. If age is less than 10 and greater than 20 then display a message as "Not eligible to participate" else
+    print a message "Welcome username ,you are Eligible".
+ ============================================================================================================================================================================   
+5. Create a web serrvice which takes name and salary of an employee and print name and salary on the console, Use MatrixParam annotation.
+-->
+
+package ass;
+
+import javax.ws.rs.GET;
+
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("ass5")
+public class Ass5 {
+
+@GET
+@Produces(MediaType.TEXT_PLAIN)
+
+public String getData(@MatrixParam("name") String name,@MatrixParam("salary") int salary)
+{
+	
+	System.out.println(name+" "+salary);
+	
+	return name+" "+salary;
+
+}
+
+}
+
+======================================================================================================================================================================
+6. Make a table Login which has username and Password. Make a Login Page which accepts username & Password. If Username & password matches with the table data then
+   Print Login Successful otherwise print Invalid login.
+7. Write a program to perform CRUD operations in Database using Hibernate. 
+8. Take name, gender and city of a person in the URL as a Query String. If gender is Male then a message should be displayed as " Welcome Mr. name , you are from INDIA".
+   If gender is Female then a message should be displayed as "Welcome Ms. name, you are from USA". Country name should be displayed based on the city. For example if the
+   city is Mumbai the Country is INDIA.
